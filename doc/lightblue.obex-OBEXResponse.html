@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>OBEXResponse</title>
+	<link rel='stylesheet' href='shortdoc.css' />
+</head>
+<body>
+
+<h2 class='moduletitle'>module <span class='modulename'><a href='index.html'>lightblue</a>.<a href='lightblue.obex.html'>obex</a>:</span></h2>
+<div class='class'>
+
+<h3 class='classtitle'>class <span class='classname'>OBEXResponse</span> </h3>
+
+<pre class='doc'>    Contains the OBEX response received from an OBEX server.
+
+    When an OBEX client sends a request, the OBEX server sends back a response
+    code (to indicate whether the request was successful) and a set of response
+    headers (to provide other useful information).
+
+    For example, if a client sends a 'Get' request to retrieve a file, the
+    client might get a response like this:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> <span class='keyword'>import</span> lightblue
+        <span class="interpreter">&gt;&gt;&gt;</span> client = lightblue.obex.OBEXClient(<span class='string'>"aa:bb:cc:dd:ee:ff"</span>, <span class='number'>10</span>)
+        <span class="interpreter">&gt;&gt;&gt;</span> response = client.get({<span class='string'>"name"</span>: <span class='string'>"file.txt"</span>}, file(<span class='string'>"file.txt"</span>, <span class='string'>"w"</span>))
+        <span class="interpreter">&gt;&gt;&gt;</span> <span class='keyword'>print</span> response
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={<span class='string'>'length'</span>: <span class='number'>35288</span>}&gt;</code></pre>
+    You can get the response code and response headers in different formats:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> <span class='keyword'>print</span> response.reason
+        <span class='string'>'OK'</span>    <span class='comment'># a string description of the response code</span>
+        <span class="interpreter">&gt;&gt;&gt;</span> <span class='keyword'>print</span> response.code
+        <span class='number'>32</span>      <span class='comment'># the response code</span>
+        <span class="interpreter">&gt;&gt;&gt;</span> <span class='keyword'>print</span> response.headers
+        {<span class='string'>'length'</span>: <span class='number'>35288</span>}   <span class='comment'># the headers, with string keys</span>
+        <span class="interpreter">&gt;&gt;&gt;</span> <span class='keyword'>print</span> response.rawheaders
+        {<span class='number'>195</span>: <span class='number'>35288</span>}        <span class='comment'># the headers, with raw header ID keys</span>
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre>
+    Note how the 'code' attribute does not have the final bit set - e.g. for
+    OK/Success, the response code is 0x20, not 0xA0.
+
+    The lightblue.obex module defines constants for response code values (e.g.
+    lightblue.obex.OK, lightblue.obex.FORBIDDEN, etc.).
+</pre>
+<div id='properties' class='section'>
+<h2 class='sectiontitle'>Properties</h2>
+<h4 class='propertytitle'>code</h4>
+
+<pre class='doc'>The response code, without the final bit set.</pre>
+<h4 class='propertytitle'>headers</h4>
+
+<pre class='doc'>The response headers, as a dictionary with string keys.</pre>
+<h4 class='propertytitle'>rawheaders</h4>
+
+<pre class='doc'>The response headers, as a dictionary with header ID (unsigned byte) keys.</pre>
+<h4 class='propertytitle'>reason</h4>
+
+<pre class='doc'>A string description of the response code.</pre>
+</div>
+
+<div id='methods' class='section'>
+<h2 class='sectiontitle'>Methods</h2>
+<div id='functionlinks'>
+<ul>
+<li><a href='#getheader'><strong>getheader</strong>(<span class='sig'>header, default=None</span>)
+</a></li>
+</ul>
+</div>
+<a name='getheader'></a><h4 class='methodtitle'>getheader(<span class='sig'>header, default=None</span>)
+</h4>
+
+<pre class='doc'>
+        Returns the response header value for the given header, which may
+        either be a string (not case-sensitive) or the raw byte
+        value of the header ID.
+
+        Returns the specified default value if the header is not present.</pre>
+</div>
+
+
+</div>
+</body></html>

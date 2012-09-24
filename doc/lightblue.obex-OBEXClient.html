@@ -1,0 +1,267 @@
+<html>
+<head>
+<title>OBEXClient</title>
+	<link rel='stylesheet' href='shortdoc.css' />
+</head>
+<body>
+
+<h2 class='moduletitle'>module <span class='modulename'><a href='index.html'>lightblue</a>.<a href='lightblue.obex.html'>obex</a>:</span></h2>
+<div class='class'>
+
+<h3 class='classtitle'>class <span class='classname'>OBEXClient</span> </h3>
+
+<pre class='doc'>    An OBEX client class. (Note this is not available on Python for Series 60.)
+
+    For example, to connect to an OBEX server and send a file:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> <span class='keyword'>import</span> lightblue
+        <span class="interpreter">&gt;&gt;&gt;</span> client = lightblue.obex.OBEXClient(<span class='string'>"aa:bb:cc:dd:ee:ff"</span>, <span class='number'>10</span>)
+        <span class="interpreter">&gt;&gt;&gt;</span> client.connect()
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span> client.put({<span class='string'>"name"</span>: <span class='string'>"photo.jpg"</span>}, file(<span class='string'>"photo.jpg"</span>, <span class='string'>"rb"</span>))
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span> client.disconnect()
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre>
+    A client must call connect() to establish a connection before it can send
+    any other requests.
+
+    The connect(), disconnect(), put(), delete(), get() and setpath() methods
+    all accept the request headers as a dictionary of header-value mappings. The
+    request headers are used to provide the server with additional information 
+    for the request. For example, this sends a Put request that includes Name,
+    Type and Length headers in the request headers, to provide details about
+    the transferred file:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> f = file(<span class='string'>"file.txt"</span>)
+        <span class="interpreter">&gt;&gt;&gt;</span> client.put({<span class='string'>"name"</span>: <span class='string'>"file.txt"</span>, <span class='string'>"type"</span>: <span class='string'>"text/plain"</span>,
+        ...         <span class='string'>"length"</span>: <span class='number'>5192</span>}, f)
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre>
+
+    Here is a list of all the different string header keys that you can use in
+    the request headers, and the expected type of the value for each header:
+
+        - "name" -&gt; a string
+        - "type" -&gt; a string
+        - "length" -&gt; an int
+        - "time" -&gt; a datetime object from the datetime module
+        - "description" -&gt; a string
+        - "target" -&gt; a string or buffer
+        - "http" -&gt; a string or buffer
+        - "who" -&gt; a string or buffer
+        - "connection-id" -&gt; an int
+        - "application-parameters" -&gt; a string or buffer
+        - "authentication-challenge" -&gt; a string or buffer
+        - "authentication-response" -&gt; a string or buffer
+        - "creator-id" -&gt; an int
+        - "wan-uuid" -&gt; a string or buffer
+        - "object-class" -&gt; a string or buffer
+        - "session-parameters" -&gt; a string or buffer
+        - "session-sequence-number" -&gt; an int less than 256
+
+    (The string header keys are not case-sensitive.)
+
+    Alternatively, you can use raw header ID values instead of the above
+    convenience strings. So, the previous example can be rewritten as:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> client.put({<span class='number'>0x01</span>: <span class='string'>"file.txt"</span>, <span class='number'>0x42</span>: <span class='string'>"text/plain"</span>, <span class='number'>0xC3</span>: <span class='number'>5192</span>},
+        ...     fileobject)
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre>
+    This is also useful for inserting custom headers. For example, a PutImage
+    request for a Basic Imaging client requires the Img-Descriptor (0x71) 
+    header:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> client.put({<span class='string'>"type"</span>: <span class='string'>"x-bt/img-img"</span>,
+        ...     <span class='string'>"name"</span>: <span class='string'>"photo.jpg"</span>,
+        ...     <span class='number'>0x71</span>: <span class='string'>'&lt;image-descriptor version="1.0"&gt;&lt;image encoding="JPEG" pixel="160*120" size="37600"/&gt;&lt;/image-descriptor&gt;'</span>},
+        ...     file(<span class='string'>'photo.jpg'</span>, <span class='string'>'rb'</span>))
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre>
+    Notice that the connection-id header is not sent, because this is
+    automatically included by OBEXClient in the request headers if a
+    connection-id was received in a previous Connect response.
+
+    See the included src/examples/obex_ftp_client.py for an example of using
+    OBEXClient to implement a File Transfer client for browsing the files on a
+    remote device.
+</pre>
+<div id='methods' class='section'>
+<h2 class='sectiontitle'>Methods</h2>
+<div id='functionlinks'>
+<ul>
+<li><a href='#__init__'><strong>__init__</strong>(<span class='sig'>address, channel</span>)
+</a></li>
+<li><a href='#connect'><strong>connect</strong>(<span class='sig'>headers={}</span>)
+</a></li>
+<li><a href='#disconnect'><strong>disconnect</strong>(<span class='sig'>headers={}</span>)
+</a></li>
+<li><a href='#put'><strong>put</strong>(<span class='sig'>headers, fileobj</span>)
+</a></li>
+<li><a href='#delete'><strong>delete</strong>(<span class='sig'>headers</span>)
+</a></li>
+<li><a href='#get'><strong>get</strong>(<span class='sig'>headers, fileobj</span>)
+</a></li>
+<li><a href='#setpath'><strong>setpath</strong>(<span class='sig'>headers, cdtoparent=False, createdirs=False</span>)
+</a></li>
+</ul>
+</div>
+<a name='__init__'></a><h4 class='methodtitle'>__init__(<span class='sig'>address, channel</span>)
+</h4>
+
+<pre class='doc'>
+    Creates an OBEX client.
+
+    Arguments:
+        - address: the address of the remote device
+        - channel: the RFCOMM channel of the remote OBEX service</pre>
+<a name='connect'></a><h4 class='methodtitle'>connect(<span class='sig'>headers={}</span>)
+</h4>
+
+<pre class='doc'>
+    Establishes the Bluetooth connection to the remote OBEX server and sends
+    a Connect request to open the OBEX session. Returns an OBEXResponse 
+    instance containing the server response.
+    
+    Raises lightblue.obex.OBEXError if the session is already connected, or if
+    an error occurs during the request.
+    
+    If the server refuses the Connect request (i.e. if it sends a response code
+    other than OK/Success), the Bluetooth connection will be closed.
+
+    Arguments:
+        - headers={}: the headers to send for the Connect request</pre>
+<a name='disconnect'></a><h4 class='methodtitle'>disconnect(<span class='sig'>headers={}</span>)
+</h4>
+
+<pre class='doc'>
+    Sends a Disconnect request to end the OBEX session and closes the Bluetooth
+    connection to the remote OBEX server. Returns an OBEXResponse 
+    instance containing the server response.
+    
+    Raises lightblue.obex.OBEXError if connect() has not been called, or if an
+    error occurs during the request.
+
+    Note that you don't need to send any connection-id headers - this is
+    automatically included if the client received one in a Connect response.
+
+    Arguments:
+        - headers={}: the headers to send for the request</pre>
+<a name='put'></a><h4 class='methodtitle'>put(<span class='sig'>headers, fileobj</span>)
+</h4>
+
+<pre class='doc'>    Sends a Put request. Returns an OBEXResponse instance containing the
+    server response.
+
+    Raises lightblue.obex.OBEXError if connect() has not been called, or if an
+    error occurs during the request.
+
+    Note that you don't need to send any connection-id headers - this is
+    automatically included if the client received one in a Connect response.
+
+    Arguments:
+        - headers: the headers to send for the request
+        - fileobj: a file-like object containing the file data to be sent for
+          the request
+
+    For example, to send a file named 'photo.jpg', using the request headers 
+    to notify the server of the file's name, MIME type and length:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> client = lightblue.obex.OBEXClient(<span class='string'>"aa:bb:cc:dd:ee:ff"</span>, <span class='number'>10</span>)
+        <span class="interpreter">&gt;&gt;&gt;</span> client.connect()
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span> client.put({<span class='string'>"name"</span>: <span class='string'>"photo.jpg"</span>, <span class='string'>"type"</span>: <span class='string'>"image/jpeg"</span>,
+                <span class='string'>"length"</span>: <span class='number'>28566</span>}, file(<span class='string'>"photo.jpg"</span>, <span class='string'>"rb"</span>))
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre></pre>
+<a name='delete'></a><h4 class='methodtitle'>delete(<span class='sig'>headers</span>)
+</h4>
+
+<pre class='doc'>    Sends a Put-Delete request in order to delete a file or folder on the remote
+    server. Returns an OBEXResponse instance containing the server response.
+
+    Raises lightblue.obex.OBEXError if connect() has not been called, or if an
+    error occurs during the request.
+
+    Note that you don't need to send any connection-id headers - this is
+    automatically included if the client received one in a Connect response.
+
+    Arguments:
+        - headers: the headers to send for the request - you should use the
+          'name' header to specify the file you want to delete
+
+    If the file on the server can't be deleted because it's a read-only file,
+    you might get an 'Unauthorized' response, like this:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> client = lightblue.obex.OBEXClient(<span class='string'>"aa:bb:cc:dd:ee:ff"</span>, <span class='number'>10</span>)
+        <span class="interpreter">&gt;&gt;&gt;</span> client.connect()
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span> client.delete({<span class='string'>"name"</span>: <span class='string'>"random_file.txt"</span>})
+        &lt;OBEXResponse reason=<span class='string'>'Unauthorized'</span> code=<span class='number'>0x41</span> (<span class='number'>0xc1</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre></pre>
+<a name='get'></a><h4 class='methodtitle'>get(<span class='sig'>headers, fileobj</span>)
+</h4>
+
+<pre class='doc'>    Sends a Get request. Returns an OBEXResponse instance containing the server 
+    response.
+
+    Raises lightblue.obex.OBEXError if connect() has not been called, or if an
+    error occurs during the request.
+
+    Note that you don't need to send any connection-id headers - this is
+    automatically included if the client received one in a Connect response.
+
+    Arguments:
+        - headers: the headers to send for the request - you should use these
+          to specify the file you want to retrieve
+        - fileobj: a file-like object, to which the received data will be
+          written
+
+    An example:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> client.connect()
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span> f = file(<span class='string'>"received_file.txt"</span>, <span class='string'>"w+"</span>)
+        <span class="interpreter">&gt;&gt;&gt;</span> client.get({<span class='string'>"name"</span>: <span class='string'>"testfile.txt"</span>}, f)
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={<span class='string'>'length'</span>:<span class='number'>9</span>}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span> f.seek(<span class='number'>0</span>)
+        <span class="interpreter">&gt;&gt;&gt;</span> f.read()
+        <span class='string'>'test file'</span>
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre></pre>
+<a name='setpath'></a><h4 class='methodtitle'>setpath(<span class='sig'>headers, cdtoparent=False, createdirs=False</span>)
+</h4>
+
+<pre class='doc'>    Sends a SetPath request in order to set the "current path" on the remote
+    server for file transfers. Returns an OBEXResponse instance containing the 
+    server response.
+
+    Raises lightblue.obex.OBEXError if connect() has not been called, or if an
+    error occurs during the request.
+
+    Note that you don't need to send any connection-id headers - this is
+    automatically included if the client received one in a Connect response.
+
+    Arguments:
+        - headers: the headers to send for the request - you should use the
+          'name' header to specify the directory you want to change to
+        - cdtoparent=False: True if the remote server should move up one
+          directory before applying the specified directory (i.e. 'cd
+          ../dirname')
+        - createdirs=False: True if the specified directory should be created
+          if it doesn't exist (if False, the server will return an error
+          response if the directory doesn't exist)
+
+    For example:
+<pre class='python'><code>        <span class='comment'># change to the "images" subdirectory</span>
+        <span class="interpreter">&gt;&gt;&gt;</span> client.setpath({<span class='string'>"name"</span>: <span class='string'>"images"</span>})
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre>
+<pre class='python'><code>        <span class='comment'># change to the parent directory</span>
+        <span class="interpreter">&gt;&gt;&gt;</span> client.setpath({}, cdtoparent=True)
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre>
+<pre class='python'><code>        <span class='comment'># make a directory "My_Files"</span>
+        <span class="interpreter">&gt;&gt;&gt;</span> client.setpath({<span class='string'>"name"</span>: <span class='string'>"My_Files"</span>}, createdirs=True)
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre>
+<pre class='python'><code>        <span class='comment'># change to the root directory - you can use an empty "name" header</span>
+        <span class='comment'># to specify this</span>
+        <span class="interpreter">&gt;&gt;&gt;</span> client.setpath({<span class='string'>"name"</span>: <span class='string'>""</span>})
+        &lt;OBEXResponse reason=<span class='string'>'OK'</span> code=<span class='number'>0x20</span> (<span class='number'>0xa0</span>) headers={}&gt;
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre></pre>
+</div>
+
+
+</div>
+</body></html>

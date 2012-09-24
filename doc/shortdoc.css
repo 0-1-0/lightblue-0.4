@@ -1,0 +1,14 @@
+body { margin:30px }.section {     border: 1px solid #3333ff;    padding: 5px 20px 20px 20px;    margin-top: 10px;    }    .section .moduletitle { font-size: 100% }
+.sectiontitle { font-variant:small-caps; font-size:125%; }h3 { margin-bottom: 11px }
+h4 { font-family:monospace; }.sig { font-weight:normal; font-style:italic; font-family:Verdana }
+#functionlinks .sig { font-size: 12px }.doc { 
+        margin:0; 
+        font-family:Verdana; 
+        font-size:11px; 
+        line-height:150%; 
+    }
+pre.doc { margin:0 0 20px 0; }
+    .classname { font-family:Monospace }.modulename { font-family:Monospace }
+
+#functionlinks { font-family:Monospace; line-height: 125% }
+pre .comment { color:green; }pre .number { color:navy; }pre .string { color:#c00; }pre .interpreter { color:#666; }#footer {    text-align: right;}

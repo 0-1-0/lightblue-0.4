@@ -1,0 +1,233 @@
+<html>
+<head>
+<title>package lightblue</title>
+	<link rel='stylesheet' href='shortdoc.css' />
+</head>
+<body>
+
+<div class='module'>
+
+<h2 class='moduletitle'>package <span class='modulename'>lightblue</span></h2>
+<pre class='doc'>LightBlue - a simple bluetooth library.</pre><div id='submodules' class='section'>
+<h2 class='sectiontitle'>Sub-modules</h2>
+<a href='lightblue.obex.html'><h2 class='moduletitle'>module <span class='modulename'>lightblue.obex</span></h2>
+</a><div class='doc'>Provides an OBEX client class and convenience functions for sending and
+receiving files over OBEX.</div>
+</div>
+
+<div id='classes' class='section'>
+<h2 class='sectiontitle'>Classes &amp; Types</h2>
+<div class='class'>
+<a href='lightblue-Socket_objects.html'><h3 class='classtitle'>Socket objects</h3></a>
+<div class='doc'>A Bluetooth socket object has the same interface as a socket object from 
+the Python standard library &lt;socket&gt; module.</div>
+</div>
+
+
+<div class='class'>
+<a href='lightblue-BluetoothError.html'><h3 class='classtitle'>exception <span class='classname'>BluetoothError</span> <span class='superclasstitle'>(<tt>exceptions.IOError</tt>)</span></h3>
+</a>
+<div class='doc'>Generic exception raised for Bluetooth errors.</div>
+</div>
+
+
+</div>
+
+<div id='functions' class='section'>
+<h2 class='sectiontitle'>Functions</h2>
+<div id='functionlinks'>
+<ul>
+<li><a href='#finddevices'><strong>finddevices</strong>(<span class='sig'>getnames=True, length=10</span>)
+</a></li>
+<li><a href='#findservices'><strong>findservices</strong>(<span class='sig'>addr=None, name=None, servicetype=None</span>)
+</a></li>
+<li><a href='#finddevicename'><strong>finddevicename</strong>(<span class='sig'>address, usecache=True</span>)
+</a></li>
+<li><a href='#selectdevice'><strong>selectdevice</strong>(<span class='sig'></span>)
+</a></li>
+<li><a href='#selectservice'><strong>selectservice</strong>(<span class='sig'></span>)
+</a></li>
+<li><a href='#gethostaddr'><strong>gethostaddr</strong>(<span class='sig'></span>)
+</a></li>
+<li><a href='#gethostclass'><strong>gethostclass</strong>(<span class='sig'></span>)
+</a></li>
+<li><a href='#socket'><strong>socket</strong>(<span class='sig'>proto=RFCOMM</span>)
+</a></li>
+<li><a href='#advertise'><strong>advertise</strong>(<span class='sig'>name, sock, servicetype</span>)
+</a></li>
+<li><a href='#stopadvertise'><strong>stopadvertise</strong>(<span class='sig'>sock</span>)
+</a></li>
+<li><a href='#splitclass'><strong>splitclass</strong>(<span class='sig'>classofdevice</span>)
+</a></li>
+</ul>
+</div>
+<a name='finddevices'></a><h4 class='functitle'>finddevices(<span class='sig'>getnames=True, length=10</span>)
+</h4>
+
+<pre class='doc'>
+    Performs a device discovery and returns the found devices as a list of 
+    (address, name, class-of-device) tuples. Raises BluetoothError if an error
+    occurs.
+    
+    Arguments:
+        - getnames=True: True if device names should be retrieved during 
+          discovery. If false, None will be returned instead of the device
+          name.
+        - length=10: the number of seconds to spend discovering devices 
+          (this argument has no effect on Python for Series 60)
+            
+    Do not invoke a new discovery before a previous discovery has finished.
+    Also, to minimise interference with other wireless and bluetooth traffic, 
+    and to conserve battery power on the local device, discoveries should not 
+    be invoked too frequently (an interval of at least 20 seconds is 
+    recommended).</pre>
+<a name='findservices'></a><h4 class='functitle'>findservices(<span class='sig'>addr=None, name=None, servicetype=None</span>)
+</h4>
+
+<pre class='doc'>
+    Performs a service discovery and returns the found services as a list of 
+    (device-address, service-port, service-name) tuples. Raises BluetoothError 
+    if an error occurs.
+    
+    Arguments:
+        - addr=None: a device address, to search only for services on a 
+          specific device
+        - name=None: a service name string, to search only for a service with a
+          specific name
+        - servicetype=None: can be RFCOMM or OBEX to search only for RFCOMM or
+          OBEX-type services. (OBEX services are not returned from an RFCOMM
+          search)
+          
+    If more than one criteria is specified, this returns services that match 
+    all criteria.
+    
+    Currently the Python for Series 60 implementation will only find RFCOMM and 
+    OBEX services.</pre>
+<a name='finddevicename'></a><h4 class='functitle'>finddevicename(<span class='sig'>address, usecache=True</span>)
+</h4>
+
+<pre class='doc'>
+    Returns the name of the device with the given bluetooth address.
+    finddevicename(gethostaddr()) returns the local device name.
+    
+    Arguments:
+        - address: the address of the device to look up
+        - usecache=True: if True, the device name will be fetched from a local
+          cache if possible. If False, or if the device name is not in the 
+          cache, the remote device will be contacted to request its name.
+    
+    Raise BluetoothError if the name cannot be retrieved.</pre>
+<a name='selectdevice'></a><h4 class='functitle'>selectdevice(<span class='sig'></span>)
+</h4>
+
+<pre class='doc'>
+    Displays a GUI which allows the end user to select a device from a list of 
+    discovered devices. 
+    
+    Returns the selected device as an (address, name, class-of-device) tuple. 
+    Returns None if the selection was cancelled.
+    
+    (On Python For Series 60, the device selection will fail if there are any 
+    open bluetooth connections.)</pre>
+<a name='selectservice'></a><h4 class='functitle'>selectservice(<span class='sig'></span>)
+</h4>
+
+<pre class='doc'>
+    Displays a GUI which allows the end user to select a service from a list of 
+    discovered devices and their services.
+    
+    Returns the selected service as a (device-address, service-port, service-
+    name) tuple. Returns None if the selection was cancelled.
+    
+    (On Python For Series 60, the device selection will fail if there are any 
+    open bluetooth connections.)
+    
+    Currently the Python for Series 60 implementation will only find RFCOMM and 
+    OBEX services.</pre>
+<a name='gethostaddr'></a><h4 class='functitle'>gethostaddr(<span class='sig'></span>)
+</h4>
+
+<pre class='doc'>
+    Returns the address of the local bluetooth device. 
+
+    Raise BluetoothError if the local device is not available.</pre>
+<a name='gethostclass'></a><h4 class='functitle'>gethostclass(<span class='sig'></span>)
+</h4>
+
+<pre class='doc'>
+    Returns the class of device of the local bluetooth device. 
+    
+    These values indicate the device's major services and the type of the 
+    device (e.g. mobile phone, laptop, etc.). If you google for 
+    "assigned numbers bluetooth baseband" you might find some documents
+    that discuss how to extract this information from the class of device.
+
+    Raise BluetoothError if the local device is not available.</pre>
+<a name='socket'></a><h4 class='functitle'>socket(<span class='sig'>proto=RFCOMM</span>)
+</h4>
+
+<pre class='doc'>
+    socket(proto=RFCOMM) -&gt; socket object
+    
+    Returns a new socket object.
+    
+    Arguments:
+        - proto=RFCOMM: the type of socket to be created - either L2CAP or
+          RFCOMM. 
+          
+    Note that L2CAP sockets are not available on Python For Series 60, and
+    only L2CAP client sockets are supported on Mac OS X and Linux (i.e. you can
+    connect() the socket but not bind(), accept(), etc.).</pre>
+<a name='advertise'></a><h4 class='functitle'>advertise(<span class='sig'>name, sock, servicetype</span>)
+</h4>
+
+<pre class='doc'>
+    Starts advertising a service with the given name, using the given server
+    socket. Raises BluetoothError if the service cannot be advertised.
+    
+    Arguments:
+        - name: name of the service to be advertised
+        - sock: the socket object that will serve this service. The socket must 
+          be already bound to a channel. If a RFCOMM service is being 
+          advertised, the socket should also be listening.
+        - servicetype: the type of service to advertise - either RFCOMM or 
+          OBEX. (L2CAP services are not currently supported.)
+          
+    (If the servicetype is RFCOMM, the service will be advertised with the
+    Serial Port Profile; if the servicetype is OBEX, the service will be
+    advertised with the OBEX Object Push Profile.)</pre>
+<a name='stopadvertise'></a><h4 class='functitle'>stopadvertise(<span class='sig'>sock</span>)
+</h4>
+
+<pre class='doc'>
+    Stops advertising the service on the given socket. Raises BluetoothError if 
+    no service is advertised on the socket.
+    
+    This will error if the given socket is already closed.</pre>
+<a name='splitclass'></a><h4 class='functitle'>splitclass(<span class='sig'>classofdevice</span>)
+</h4>
+
+<pre class='doc'>    Splits the given class of device to return a 3-item tuple with the 
+    major service class, major device class and minor device class values.
+
+    These values indicate the device's major services and the type of the 
+    device (e.g. mobile phone, laptop, etc.). If you google for 
+    "assigned numbers bluetooth baseband" you might find some documents
+    that discuss how to extract this information from the class of device.
+
+    Example:
+<pre class='python'><code>        <span class="interpreter">&gt;&gt;&gt;</span> splitclass(<span class='number'>1057036</span>)
+        (<span class='number'>129</span>, <span class='number'>1</span>, <span class='number'>3</span>)
+        <span class="interpreter">&gt;&gt;&gt;</span></code></pre></pre>
+</div>
+
+<div id='variables' class='section'>
+<h2 class='sectiontitle'>Data</h2>
+<h4 class='variable'>L2CAP = 10</h4>
+<h4 class='variable'>RFCOMM = 11</h4>
+<h4 class='variable'>OBEX = 12</h4>
+</div>
+
+
+</div>
+</body></html>

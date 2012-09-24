@@ -1,0 +1,29 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                cancelFileTransfer = id; 
+                chooseFile = id; 
+                connectOrDisconnect = id; 
+                findService = id; 
+                sendFile = id; 
+            }; 
+            CLASS = SimpleOBEXClient; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                addressField = id; 
+                cancelButton = id; 
+                channelField = id; 
+                connectButton = id; 
+                connectionProgress = id; 
+                filePathField = id; 
+                logTextView = id; 
+                sendButton = id; 
+                transferProgress = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

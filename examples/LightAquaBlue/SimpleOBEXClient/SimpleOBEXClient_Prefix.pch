@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SimpleOBEXClient' target in the 'SimpleOBEXClient' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

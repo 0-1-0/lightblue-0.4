@@ -1,0 +1,21 @@
+Metadata-Version: 1.0
+Name: lightblue
+Version: 0.4
+Summary: Cross-platform Python Bluetooth library for Mac OS X, GNU/Linux and Python for Series 60.
+Home-page: http://lightblue.sourceforge.net
+Author: Bea Lam
+Author-email: blammit@gmail.com
+License: GPL
+Description: LightBlue is a cross-platform Python Bluetooth library for Mac OS X, GNU/Linux and Python for Series 60. It provides support for device and service discovery (with and without end-user GUIs), a standard socket interface for RFCOMM sockets, sending and receiving of files over OBEX, advertising of RFCOMM and OBEX services, and access to local device information.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: License :: OSI Approved :: GNU General Public License v3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: Communications
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Other OS

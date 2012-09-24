@@ -1,0 +1,66 @@
+Version 0.4
+===========
++ License changed to GPL (v3) to comply with terms of the GPL for use of PyBluez.
++ Fixed memory leak issues on Mac OS X when deallocating objects created with pyobjc.
++ Fixed finddevices() on Mac OS X to not thrown an exception if no devices are found.
+
+
+Version 0.3.3
+=============
++ Deprecation warnings no longer appear for Mac OS 10.5.
++ Fixed sockets to raise socket.timeout correctly.
++ Fixed bugs in connect() & disconnect() in OBEXClient for both Mac & Linux.
++ Fixed OBEX transfer speed for OBEXClient on Linux.
+
+
+Version 0.3.2
+=============
++ Fixed so doesn't raise exception when using 'from lightblue import *'.
++ For Linux: fixed bug where lightblue.obex.recvfile() was often refusing requests.
++ For Mac: fixed bug where NSInconsistencyException was being raised while blocking/processing events.
+
+
+Version 0.3.1
+=============
++ This fixes a bug in findservices() on Python for Series 60.
+
+
+Version 0.3
+===========
++ A new OBEXClient class for Mac OS X and Linux. It can send all the usual OBEX requests, with any type of headers (including custom headers). There is a new obex_ftp_client.py example that uses OBEXClient to implement an OBEX File Transfer client.
++ The library now works on Mac OS 10.5. Currently there are some deprecation warnings when you import lightblue, but there shouldn't be any issues otherwise.
++ The BTUtil framework has been renamed to "LightAquaBlue", and its OBEX-related classes have been completely rewritten; it now has a much better, more flexible API, that makes it possible to use it to build higher-level OBEX implementations.
++ The Linux version's internal OBEX code has been completely rewritten, and it's now much easier to customise and tweak the OBEX client and server implementations, if necessary.
++ The lightblue.obex sendfile() and recvfile() functions now accept any old file-like objects, instead of only accepting built-in file objects with proper file descriptors.
++ Fixed various unicode-related bugs.
+
+
+Version 0.2.3
+=============
++ Fixed Linux version to work with newer versions of PyBluez
+
+
+Version 0.2.2
+=============
++ The PyS60 3rd Edition binaries have (really) been fixed, and gethostaddr() and gethostclass() should also be fixed for PyS60 2nd Edition FP2 and FP3.
++ Since it's getting more difficult to build for PyS60 1st Edition, this build has been dropped for this version -- which isn't an issue for this release since there are no new features -- but there won't be any further builds for this edition. If you need to compile LightBlue for 1st Edition, feel free to email me with any issues.
++ Fixed functions on Mac OS X build that wait (e.g. finddevices(), recv() for sockets) so that they don't busy-wait and hog the CPU.
+
+
+Version 0.2.1
+=============
++ Hopefully fixed problems with PyS60 3rd Edition sisx binary
++ Added unsigned sis for PyS60 3rd Edition with maximum free dev cert capabilities
+
+
+Version 0.2
+===========
+
++ L2CAP client sockets for Mac OS X and Linux
++ finddevicename() now takes usecache argument to specify whether to do a remote name request if name is in local cache
++ stopadvertising() is now automatically called for a socket when close() is called on the socket
++ Added SIS build for Series 60 3rd Edition
++ If some of the SIS files for PyS60 didn't work before, they should now
++ Improved buffering of received data for sockets on Mac OS X
++ Fixed recv() for mac sockets if other side has closed connection
++ Fixed mac sockets to receive binary data 

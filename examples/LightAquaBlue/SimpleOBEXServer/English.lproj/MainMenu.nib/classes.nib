@@ -1,0 +1,19 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {startOrStopServer = id; }; 
+            CLASS = SimpleOBEXServer; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                logView = id; 
+                mConnectionsController = id; 
+                serverDirectoryField = id; 
+                serviceNameField = id; 
+                startButton = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}
