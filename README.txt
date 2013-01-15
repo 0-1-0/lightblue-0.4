@@ -1,11 +1,14 @@
 LightBlue
 
-http://lightblue.sourceforge.net
-Bea Lam <blammit@gmail.com>
-
 LightBlue is a cross-platform Bluetooth API for Python which provides simple access to Bluetooth operations. It is available for Mac OS X, GNU/Linux and Nokia's Python for Series 60 platform for mobile phones.
 
-LightBlue provides simple access to:    * Device and service discovery (with and without end-user GUIs)    * Standard socket interface for RFCOMM and L2CAP sockets (currently L2CAP client sockets only, and not on PyS60)    * Sending and receiving files over OBEX    * Advertising of RFCOMM and OBEX services    * Local device information
+LightBlue provides simple access to:
+
+    * Device and service discovery (with and without end-user GUIs)
+    * Standard socket interface for RFCOMM and L2CAP sockets (currently L2CAP client sockets only, and not on PyS60)
+    * Sending and receiving files over OBEX
+    * Advertising of RFCOMM and OBEX services
+    * Local device information
 
 LightBlue is released under the GPL License.
 
