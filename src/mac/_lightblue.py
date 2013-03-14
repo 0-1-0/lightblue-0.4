@@ -36,11 +36,26 @@ __all__ = ("finddevices", "findservices", "finddevicename",
            "selectdevice", "selectservice",
            "gethostaddr", "gethostclass",
            "socket", 
-           "advertise", "stopadvertise")
+           "advertise", "stopadvertise",
+           "pair")
 
 # details of advertised services
 __advertised = {}
 
+def pair(addr):
+    """
+    pair(addr) -> (pairing_code, error)
+    
+    Initiates a pairing procedure with a device based its 
+    device address, e.g. '00:18:33:5B:34:24'.
+
+    Returns a tuple (pairing code, potential error code or None).
+    """
+    try:
+        p = _AsyncPair.alloc().initWithAddress_(addr)
+        return p.start()
+    except:
+        return (0, -1)
 
 def finddevices(getnames=True, length=10):
     inquiry = _SyncDeviceInquiry()
@@ -69,8 +84,7 @@ def findservices(addr=None, name=None, servicetype=None):
 
     services = []
     for devaddr in addresses:
-        iobtdevice = _IOBluetooth.IOBluetoothDevice.withAddress_(
-            _macutil.createbtdevaddr(devaddr))
+        iobtdevice = _IOBluetooth.IOBluetoothDevice.withAddressString_(devaddr)
             
         try:
             lastseen = iobtdevice.getLastServicesUpdate()
@@ -379,8 +393,81 @@ class _SyncDeviceInquiry(object):
         self._inquiry.__del__()
         super(_SyncDeviceInquiry, self).__del__()
 
+class _AsyncPair(Foundation.NSObject):
+    def initWithAddress_(self, address):
+        try:
+            attr = _IOBluetooth.IOBluetoothDevicePair
+        except AttributeError:
+            raise ImportError("Cannot find IOBluetoothDevicePair class " +\
+                "to perform device discovery. This class was introduced in " +\
+                "Mac OS X 10.7, are you running an earlier version?")
+        self = super(_AsyncPair, self).init()
+        self.device = _IOBluetooth.IOBluetoothDevice.withAddressString_(address)
+        if not self.device:
+            raise _lightbluecommon.BluetoothError(
+                "Could not find device name for %s" % address) 
+        self.pair = _IOBluetooth.IOBluetoothDevicePair.pairWithDevice_(self.device)
+        if not self.pair:
+            raise _lightbluecommon.BluetoothError(
+                "Could not create pairing state machine.") 
+        self.pair.setDelegate_(self)
+        return self
 
-        
+    def start(self):
+        result = self.pair.start()
+        if result != _macutil.kIOReturnSuccess:
+            raise _lightbluecommon.BluetoothError(
+                "Could not start pairing for %s" % address)
+        self.pairResult = None
+        self.error = None
+        timeout = 20.0
+        if not _macutil.waituntil(lambda: self.pairResult is not None or self.error is not None, timeout):
+            raise _lightbluecommon.BluetoothError("Timed out pairing with %s" % self.pair.device().addressString())
+        self.pair.setDelegate_(None)
+        self.pair = None
+        return (self.pairResult, self.error)
+
+    # - (void) devicePairingStarted:(id)sender;
+    def devicePairingStarted_(self, sender):
+        print "devicePairingStarted_"
+
+    # - (void) devicePairingConnecting:(id)sender;
+    def devicePairingConnecting_(self, sender):
+        print "devicePairingConnecting_"
+
+    # - (void) devicePairingPINCodeRequest:(id)sender;
+    def devicePairingPINCodeRequest_(self, sender):
+        print "devicePairingPINCodeRequest_ unsupported!"
+
+    # - (void) devicePairingUserConfirmationRequest:(id)sender
+    #                                  numericValue:(BluetoothNumericValue)numericValue;
+    def devicePairingUserConfirmationRequest_numericValue_(self, sender, numericValue):
+        print "devicePairingUserConfirmationRequest_numericValue_: %lu" % numericValue
+        self.pair.replyUserConfirmation_(True)
+        self.pairResult = numericValue
+        _macutil.interruptwait()
+    devicePairingUserConfirmationRequest_numericValue_ = objc.selector(
+        devicePairingUserConfirmationRequest_numericValue_, signature="v@:@I")
+
+    # - (void) devicePairingUserPasskeyNotification:(id)sender
+    #                                       passkey:(BluetoothPasskey)passkey;
+    def devicePairingUserPasskeyNotification_passkey_(self, sender, passkey):
+        self.pairResult = passkey
+        print "devicePairingUserPasskeyNotification_passkey_: %lu" % passkey
+        _macutil.interruptwait()
+    devicePairingUserPasskeyNotification_passkey_ = objc.selector(
+        devicePairingUserPasskeyNotification_passkey_, signature="v@:@I")
+
+    # - (void) devicePairingFinished:(id)sender
+    #                          error:(IOReturn)error;
+    def devicePairingFinished_error_(self, sender, error):
+        if error:
+            print "devicePairingFinished_error_: %lu" % error
+            self.error = error
+        _macutil.interruptwait()
+    devicePairingFinished_error_ = objc.selector(
+        devicePairingFinished_error_, signature="v@:@i")
+
 # Wrapper around IOBluetoothDeviceInquiry, with python callbacks that you can
 # set to receive callbacks when the inquiry is started or stopped, or when it
 # finds a device.
