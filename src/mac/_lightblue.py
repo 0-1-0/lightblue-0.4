@@ -116,8 +116,7 @@ def finddevicename(address, usecache=True):
     if address == gethostaddr():
         return _gethostname()
 
-    device = _IOBluetooth.IOBluetoothDevice.withAddress_(
-                _macutil.createbtdevaddr(address))
+    device = _IOBluetooth.IOBluetoothDevice.withAddressString_(address)
     if usecache:
         name = device.getName()
         if name is not None:
