@@ -422,15 +422,16 @@ class _AsyncPair(Foundation.NSObject):
     def start(self):
         result = self.pair.start()
         if result != _macutil.kIOReturnSuccess:
-            raise _lightbluecommon.BluetoothError(
-                "Could not start pairing for %s" % address)
+            return (None, result)
         self.pairResult = None
         self.error = None
-        timeout = 20.0
+        timeout = 10.0
         if not _macutil.waituntil(lambda: self.pairResult is not None or self.error is not None, timeout):
-            raise _lightbluecommon.BluetoothError("Timed out pairing with %s" % self.pair.device().addressString())
+            self.error = -99
+            print "Timed out pairing with %s" % self.pair.device().addressString()
         self.pair.setDelegate_(None)
         self.pair = None
+        self.device = None
         return (self.pairResult, self.error)
 
     # - (void) devicePairingStarted:(id)sender;
@@ -449,7 +450,8 @@ class _AsyncPair(Foundation.NSObject):
     #                                  numericValue:(BluetoothNumericValue)numericValue;
     def devicePairingUserConfirmationRequest_numericValue_(self, sender, numericValue):
         print "devicePairingUserConfirmationRequest_numericValue_: %lu" % numericValue
-        self.pair.replyUserConfirmation_(True)
+        if self.pair:
+            self.pair.replyUserConfirmation_(True)
         self.pairResult = numericValue
         _macutil.interruptwait()
     devicePairingUserConfirmationRequest_numericValue_ = objc.selector(
