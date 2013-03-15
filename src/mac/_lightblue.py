@@ -51,11 +51,17 @@ def pair(addr):
 
     Returns a tuple (pairing code, potential error code or None).
     """
+    unpair(addr)
     try:
         p = _AsyncPair.alloc().initWithAddress_(addr)
         return p.start()
     except:
         return (0, -1)
+
+def unpair(addr):
+    device = _IOBluetooth.IOBluetoothDevice.withAddressString_(addr)
+    if (device):
+        device.remove() # Note: -remove is a private method...
 
 def finddevices(getnames=True, length=10):
     inquiry = _SyncDeviceInquiry()
