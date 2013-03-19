@@ -106,7 +106,9 @@ def btaddrtochars(addr):
 
 def looponce():
     app = NSApplication.sharedApplication()
-    # added memory leak protection http://svn.red-bean.com/pyobjc/branches/pyobjc-1.4-branch/Doc/api-notes-macosx.txt
+    # It is very likely that this code will run in a separate python thread.
+    # An autoreleasepool won't be created automatically for us, so do so "manually" to avoid leaking.
+    # http://www.opensource.apple.com/source/pyobjc/pyobjc-14/pyobjc/stable/pyobjc-core/Doc/api-notes-macosx.txt
     pool = NSAutoreleasePool.alloc().init()
     # to push the run loops I seem to have to do this twice
     # use NSEventTrackingRunLoopMode or NSDefaultRunLoopMode?
