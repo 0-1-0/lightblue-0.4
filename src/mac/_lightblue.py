@@ -267,8 +267,7 @@ def selectdevice():
             # sometimes the baseband connection stays open which causes 
             # problems with connections w so close it here, see if this fixes 
             # it        
-            dev = _IOBluetooth.IOBluetoothDevice.withAddress_(
-                        _macutil.createbtdevaddr(devinfo[0]))        
+            dev = _IOBluetooth.IOBluetoothDevice.withAddressString_(devinfo[0])
             if dev.isConnected(): 
                 dev.closeConnection()        
         
