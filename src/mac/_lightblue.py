@@ -37,7 +37,7 @@ __all__ = ("finddevices", "findservices", "finddevicename",
            "gethostaddr", "gethostclass",
            "socket", 
            "advertise", "stopadvertise",
-           "pair")
+           "pair", "unpair")
 
 # details of advertised services
 __advertised = {}
