@@ -63,9 +63,9 @@ def unpair(addr):
     if (device):
         device.remove() # Note: -remove is a private method...
 
-def finddevices(getnames=True, length=10):
+def finddevices(getnames=True, timeout=10):
     inquiry = _SyncDeviceInquiry()
-    inquiry.run(getnames, length)
+    inquiry.run(getnames, timeout)
     devices = inquiry.getfounddevices()
     return devices
 
