@@ -28,14 +28,14 @@ __all__ = ("finddevices", "findservices", "finddevicename",
 # details of advertised services
 __advertised = {}
 
-def finddevices(getnames=True, length=10):
+def finddevices(getnames=True, timeout=10):
     # originally this used DiscoverDevices in _lightblueutil extension, but
     # that blocks the UI
 
     import e32
 
     inquiry = _DeviceInquiry()
-    inquiry.start(getnames, length)
+    inquiry.start(getnames, timeout)
     
     timer = None
     try:
