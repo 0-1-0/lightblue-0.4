@@ -34,7 +34,7 @@ import _lightblueutil
 # public attributes
 __all__ = ("finddevices", "findservices", "finddevicename",
            "gethostaddr", "gethostclass",
-           "socket",
+           "socket", "pair",
            "advertise", "stopadvertise",
            "selectdevice", "selectservice")
 
@@ -45,6 +45,10 @@ _devicenames = {}
 _PROTOCOLS = { _lightbluecommon.RFCOMM: bluetooth.RFCOMM,
                _lightbluecommon.L2CAP: bluetooth.L2CAP }
 
+
+def pair(addr):
+    # this is a stub
+    return
 
 def finddevices(getnames=True, timeout=10):
     return _SyncDeviceInquiry().run(getnames, timeout)
