@@ -535,6 +535,12 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
     def getfounddevices(self):
         return self._inquiry.foundDevices()
         
+    def deviceInquiryDeviceNameUpdated_device_devicesRemaining_(self, sender, device, devicesRemaining):
+        pass
+
+    def deviceInquiryUpdatingDeviceNamesStarted_devicesRemaining_(self, sender, devicesRemaining):
+        pass
+
     def __del__(self):
         super(_AsyncDeviceInquiry, self).dealloc()
         
@@ -557,7 +563,7 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
         if self.cb_completed:
             self.cb_completed(err, aborted)
     deviceInquiryComplete_error_aborted_ = objc.selector(
-        deviceInquiryComplete_error_aborted_, signature="v@:@iB")
+        deviceInquiryComplete_error_aborted_, signature="v@:@iZ")
              
     # - (void)deviceInquiryStarted:(IOBluetoothDeviceInquiry*)sender;             
     def deviceInquiryStarted_(self, inquiry):
