@@ -1,864 +1,0 @@
-TLightAquaBlue
-v5
-r1
-cCheck dependencies
-cSymLink /Library/Frameworks/LightAquaBlue.framework/Versions/Current A
-cSymLink /Library/Frameworks/LightAquaBlue.framework/Resources Versions/Current/Resources
-cSymLink /Library/Frameworks/LightAquaBlue.framework/LightAquaBlue Versions/Current/LightAquaBlue
-cSymLink /Library/Frameworks/LightAquaBlue.framework/Headers Versions/Current/Headers
-cSymLink /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/LightAquaBlue.framework /Library/Frameworks/LightAquaBlue.framework
-cProcessInfoPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/Info.plist Info.plist
-cCpHeader BBBluetoothOBEXServer.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXServer.h
-cCpHeader BBBluetoothOBEXClient.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXClient.h
-cCpHeader BBStreamingInputStream.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingInputStream.h
-cCpHeader BBLocalDevice.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBLocalDevice.h
-cCpHeader BBMutableOBEXHeaderSet.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBMutableOBEXHeaderSet.h
-cCpHeader BBOBEXHeaderSet.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXHeaderSet.h
-cCpHeader BBOBEXRequest.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequest.h
-cCpHeader BBOBEXRequestHandler.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequestHandler.h
-cCpHeader BBServiceAdvertiser.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBServiceAdvertiser.h
-cCpHeader LightAquaBlue.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/LightAquaBlue.h
-cCpHeader BBStreamingOutputStream.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingOutputStream.h
-cCpHeader BBBluetoothChannelDelegate.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothChannelDelegate.h
-cCpHeader BBOBEXResponse.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXResponse.h
-cCopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXFileTransferDictionary.plist OBEXFileTransferDictionary.plist
-cCopyStringsFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-cCopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXObjectPushDictionary.plist OBEXObjectPushDictionary.plist
-cCopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/SerialPortDictionary.plist SerialPortDictionary.plist
-cCpResource BridgeSupport /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/BridgeSupport
-cProcessPCH /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch.pth LightAquaBlue_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXServer.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBMutableOBEXHeaderSet.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXClient.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequest.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingInputStream.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBLocalDevice.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXHeaderSet.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequestHandler.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBServiceAdvertiser.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingOutputStream.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothChannelDelegate.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXResponse.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue normal x86_64
-cTouch /Library/Frameworks/LightAquaBlue.framework
-cStrip /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue
-cSetOwnerAndGroup root:wheel /Library/Frameworks/LightAquaBlue.framework
-cSetMode u+w,go-w,a+rX /Library/Frameworks/LightAquaBlue.framework
-
-N/Library/Frameworks/LightAquaBlue.framework
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Headers
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/LightAquaBlue
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Resources
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothChannelDelegate.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXClient.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXServer.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBLocalDevice.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBMutableOBEXHeaderSet.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXHeaderSet.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequest.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequestHandler.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXResponse.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBServiceAdvertiser.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingInputStream.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingOutputStream.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/LightAquaBlue.h
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/BridgeSupport
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/English.lproj/InfoPlist.strings
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/Info.plist
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXFileTransferDictionary.plist
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXObjectPushDictionary.plist
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/SerialPortDictionary.plist
-t2
-s0
-
-N/Library/Frameworks/LightAquaBlue.framework/Versions/Current
-t2
-s0
-
-N/System/Library/Frameworks/Cocoa.framework/Cocoa
-c000000005016E0030000000000006730
-t1343676419
-s26416
-
-N/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c00000000501A87A700000000000001E5
-t1343915943
-s485
-
-N/System/Library/Frameworks/IOBluetooth.framework/IOBluetooth
-c00000000505FB10A000000000025C5F0
-t1348448522
-s2475504
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.h
-c00000000505FCB8E000000000000069C
-t1348455310
-s1692
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.m
-c00000000505FCB8E0000000000000B6B
-t1348455310
-s2923
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.h
-c00000000505FCB8E0000000000003057
-t1348455310
-s12375
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m
-c00000000505FCB8E0000000000003068
-t1348455310
-s12392
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.h
-c00000000505FCB8E0000000000002708
-t1348455310
-s9992
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.m
-c00000000505FCB8E0000000000002252
-t1348455310
-s8786
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.h
-c00000000505FCB8E00000000000005A8
-t1348455310
-s1448
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.m
-c00000000505FCB8E000000000000056B
-t1348455310
-s1387
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.h
-c00000000505FCB8E0000000000001391
-t1348455310
-s5009
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m
-c00000000505FCB8E0000000000002711
-t1348455310
-s10001
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.h
-c00000000505FCB8E000000000000132C
-t1348455310
-s4908
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.m
-c00000000505FCB8E0000000000003055
-t1348455310
-s12373
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.h
-c00000000505FCB8E0000000000000DB8
-t1348455310
-s3512
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.m
-c00000000505FCB8E0000000000005E3F
-t1348455310
-s24127
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.h
-c00000000505FCB8E0000000000000D3F
-t1348455310
-s3391
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.m
-c00000000505FCB8E0000000000007F08
-t1348455310
-s32520
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.h
-c00000000505FCB8E0000000000000792
-t1348455310
-s1938
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.m
-c00000000505FCB8E00000000000015A3
-t1348455310
-s5539
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.h
-c00000000505FCB8E00000000000009B3
-t1348455310
-s2483
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m
-c00000000505FCB8E00000000000012E4
-t1348455310
-s4836
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.h
-c00000000505FCB8E0000000000000547
-t1348455310
-s1351
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m
-c00000000505FCB8E0000000000000884
-t1348455310
-s2180
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.h
-c00000000505FCB8E000000000000051D
-t1348455310
-s1309
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m
-c00000000505FCB8E00000000000007DC
-t1348455310
-s2012
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BridgeSupport
-c00000000505FCB8E0000000000000088
-t1348455310
-s136
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/English.lproj/InfoPlist.strings
-c00000000505FCB8E00000000000000B8
-t1348455310
-s184
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/LightAquaBlue.h
-c00000000505FCB8E0000000000000228
-t1348455310
-s552
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/LightAquaBlue_Prefix.pch
-c00000000505FCB8E000000000000009E
-t1348455310
-s158
-i<Cocoa/Cocoa.h>
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/OBEXFileTransferDictionary.plist
-c00000000505FCB8E0000000000000760
-t1348455310
-s1888
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/OBEXObjectPushDictionary.plist
-c00000000505FCB8E0000000000000760
-t1348455310
-s1888
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/SerialPortDictionary.plist
-c00000000505FCB8E000000000000072E
-t1348455310
-s1838
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothChannelDelegate.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXClient.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXServer.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBLocalDevice.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBMutableOBEXHeaderSet.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXHeaderSet.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequest.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequestHandler.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXResponse.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBServiceAdvertiser.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingInputStream.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingOutputStream.o
-t2
-s0
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/LightAquaBlue.LinkFileList
-c00000000505FCBB200000000000007D5
-t1348455346
-s2005
-
-N/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/LightAquaBlue.framework
-t2
-s0
-
-N/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch.pth
-t2
-s0
-
-NInfo.plist
-c00000000505FCB8E000000000000030D
-t1348455310
-s781
-
-CCheck dependencies
-r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies75551c320310b641^49665d320310b641^---0#1#0#--18"Check dependencies36"63AE1F36-9412-4D32-B4BC-3A303D1C2487-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothChannelDelegate.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148148.347855
-e370148148.454101
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothChannelDelegate.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.mde5759340310b641^d34f74340310b641^---0#0#0#-19%DVTDocumentLocation2@113"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.m0000000000000000^2849"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothChannelDelegate.o BBBluetoothChannelDelegate.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothChannelDelegate.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothChannelDelegate.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothChannelDelegate.o36"AF83DD37-3302-4A78-8D0E-C7418311C788-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXClient.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148147.941936
-e370148148.176386
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXClient.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m:48:64: warning: 'withAddress:' is deprecated [-Wdeprecated-declarations]
-o    mSession = [[IOBluetoothOBEXSession alloc] initWithDevice:[IOBluetoothDevice withAddress:deviceAddress]
-o                                                               ^
-o1 warning generated.
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m0150f1330310b641^793c2d340310b641^-360"/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m:48:64: warning: 'withAddress:' is deprecated [-Wdeprecated-declarations]    mSession = [[IOBluetoothOBEXSession alloc] initWithDevice:[IOBluetoothDevice withAddress:deviceAddress]                                                               ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@28"'withAddress:' is deprecated-370148148#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@108"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m0000000000000000^47#63#47#63#1477#0#12"Deprecations--0#0#0#-19%DVTDocumentLocation4@108"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m0000000000000000^2819"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXClient.o BBBluetoothOBEXClient.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXClient.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXClient.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXClient.o36"0D513766-8F79-45B4-B5F7-B65283F68EBB-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXServer.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148147.941910
-e370148148.160193
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXServer.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection100"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.mdb50f1330310b641^350a29340310b641^---0#0#0#-19%DVTDocumentLocation2@108"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.m0000000000000000^2819"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXServer.o BBBluetoothOBEXServer.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXServer.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXServer.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBBluetoothOBEXServer.o36"B0382B2A-8B84-4791-AA00-FA1A52E4F4DD-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBLocalDevice.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148148.177909
-e370148148.346000
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBLocalDevice.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.m78b82d340310b641^9d9d58340310b641^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.m0000000000000000^2771"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBLocalDevice.o BBLocalDevice.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBLocalDevice.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBLocalDevice.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBLocalDevice.o36"E32EDD6F-3A1C-49A6-B4F2-0BA8F4647FB7-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBMutableOBEXHeaderSet.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148147.941922
-e370148148.176991
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBMutableOBEXHeaderSet.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m:209:16: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
-o    if (length < 0)
-o        ~~~~~~ ^ ~
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m:219:16: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
-o    if (length < 0)
-o        ~~~~~~ ^ ~
-o2 warnings generated.
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.mbe4ff1330310b641^12502d340310b641^-480"/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m:209:16: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]    if (length < 0)        ~~~~~~ ^ ~/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m:219:16: warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]    if (length < 0)        ~~~~~~ ^ ~2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@53"Comparison of unsigned expression < 0 is always false-370148148#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m0000000000000000^208#15#208#15#6337#0#14"Semantic Issue2(3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m0000000000000000^208#8#208#14#6330#0#3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m0000000000000000^208#17#208#18#6339#0#-2@53"Comparison of unsigned expression < 0 is always false-370148148#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m0000000000000000^218#15#218#15#6602#0#14"Semantic Issue2(3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m0000000000000000^218#8#218#14#6595#0#3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m0000000000000000^218#17#218#18#6604#0#-0#0#0#-19%DVTDocumentLocation4@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m0000000000000000^2825"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBMutableOBEXHeaderSet.o BBMutableOBEXHeaderSet.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBMutableOBEXHeaderSet.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBMutableOBEXHeaderSet.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBMutableOBEXHeaderSet.o36"583E38F5-3426-4504-AD91-1900BCA7C8CE-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXHeaderSet.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148148.178362
-e370148148.366723
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXHeaderSet.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.m0fd02d340310b641^51f75d340310b641^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.m0000000000000000^2783"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXHeaderSet.o BBOBEXHeaderSet.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXHeaderSet.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXHeaderSet.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXHeaderSet.o36"CEAEA297-BE9E-4222-83DB-9B7FA9B04F88-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequest.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148147.941939
-e370148148.222507
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequest.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.mb14ef1330310b641^472139340310b641^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.m0000000000000000^2771"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequest.o BBOBEXRequest.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequest.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequest.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequest.o36"86CB2D4D-1C4C-43B5-8C6B-B125A627F7DB-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequestHandler.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148148.223922
-e370148148.491214
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequestHandler.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.m847f39340310b641^23c07d340310b641^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.m0000000000000000^2813"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequestHandler.o BBOBEXRequestHandler.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequestHandler.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequestHandler.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXRequestHandler.o36"10F48763-1423-4049-9E99-AF8BECBFE864-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXResponse.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148148.378698
-e370148148.466125
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXResponse.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.m8e3b61340310b641^045577340310b641^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.m0000000000000000^2777"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXResponse.o BBOBEXResponse.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXResponse.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXResponse.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBOBEXResponse.o36"2CC3909D-AB58-424B-ABA3-8D1A64884AC3-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBServiceAdvertiser.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148148.241407
-e370148148.341035
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBServiceAdvertiser.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m:142:3: warning: implicit declaration of function 'IOBluetoothObjectRelease' is invalid in C99 [-Wimplicit-function-declaration]
-o                IOBluetoothObjectRelease(serviceRecordRef);
-o                ^
-o1 warning generated.
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.mdffd3d340310b641^725357340310b641^-318"/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m:142:3: warning: implicit declaration of function 'IOBluetoothObjectRelease' is invalid in C99 [-Wimplicit-function-declaration]                IOBluetoothObjectRelease(serviceRecordRef);                ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@77"Implicit declaration of function 'IOBluetoothObjectRelease' is invalid in C99-370148148#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@106"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m0000000000000000^141#2#141#2#4633#0#14"Semantic Issue--0#0#0#-19%DVTDocumentLocation4@106"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m0000000000000000^2807"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBServiceAdvertiser.o BBServiceAdvertiser.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBServiceAdvertiser.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBServiceAdvertiser.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBServiceAdvertiser.o36"F3BE5ABC-A480-404E-90DB-706478E4FE3F-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingInputStream.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148148.161538
-e370148148.239475
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingInputStream.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m:40:1: warning: conflicting return type in implementation of 'read:maxLength:': 'NSInteger' (aka 'long') vs 'int'
-o- (int)read:(uint8_t *)buffer maxLength:(unsigned int)maxLength
-o^  ~~~
-o/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:53:1: note: previous definition is here
-o- (NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len;
-o^  ~~~~~~~~~
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m:40:55: warning: conflicting parameter types in implementation of 'read:maxLength:': 'NSUInteger' (aka 'unsigned long') vs 'unsigned int'
-o- (int)read:(uint8_t *)buffer maxLength:(unsigned int)maxLength
-o                                         ~~~~~~~~     ^
-o/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:53:59: note: previous definition is here
-o- (NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len;
-o                                               ~~~~~~~~~~ ^
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m:51:61: warning: conflicting parameter types in implementation of 'getBuffer:length:': 'NSUInteger *' (aka 'unsigned long *') vs 'unsigned int *'
-o- (BOOL)getBuffer:(uint8_t **)buffer length:(unsigned int *)len
-o                                             ~~~~~~~~~~~~~~ ^
-o/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:56:59: note: previous definition is here
-o- (BOOL)getBuffer:(uint8_t **)buffer length:(NSUInteger *)len;
-o                                             ~~~~~~~~~~~~ ^
-o3 warnings generated.
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m618b29340310b641^0f643d340310b641^-1661"/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m:40:1: warning: conflicting return type in implementation of 'read:maxLength:': 'NSInteger' (aka 'long') vs 'int'- (int)read:(uint8_t *)buffer maxLength:(unsigned int)maxLength^  ~~~/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:53:1: note: previous definition is here- (NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len;^  ~~~~~~~~~/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m:40:55: warning: conflicting parameter types in implementation of 'read:maxLength:': 'NSUInteger' (aka 'unsigned long') vs 'unsigned int'- (int)read:(uint8_t *)buffer maxLength:(unsigned int)maxLength                                         ~~~~~~~~     ^/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:53:59: note: previous definition is here- (NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len;                                               ~~~~~~~~~~ ^/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m:51:61: warning: conflicting parameter types in implementation of 'getBuffer:length:': 'NSUInteger *' (aka 'unsigned long *') vs 'unsigned int *'- (BOOL)getBuffer:(uint8_t **)buffer length:(unsigned int *)len                                             ~~~~~~~~~~~~~~ ^/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:56:59: note: previous definition is here- (BOOL)getBuffer:(uint8_t **)buffer length:(NSUInteger *)len;                                             ~~~~~~~~~~~~ ^3 warnings generated.3(36%IDEClangDiagnosticActivityLogMessage2@97"Conflicting return type in implementation of 'read:maxLength:': 'NSInteger' (aka 'long') vs 'int'-370148148#18446744073709551615#0#1(2@27"Previous definition is here-370148148#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^52#0#52#0#1893#0#21"Clang LLVM 1.0 Notice1(3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^52#3#52#12#1896#0#-1#27"com.apple.dt.IDE.diagnostic3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m0000000000000000^39#0#39#0#1025#0#14"Semantic Issue1(3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m0000000000000000^39#3#39#6#1028#0#-2@120"Conflicting parameter types in implementation of 'read:maxLength:': 'NSUInteger' (aka 'unsigned long') vs 'unsigned int'-370148148#18446744073709551615#0#1(2@27"Previous definition is here-370148148#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^52#58#52#58#1951#0#21"Clang LLVM 1.0 Notice1(3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^52#47#52#57#1940#0#-1#27"com.apple.dt.IDE.diagnostic3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m0000000000000000^39#54#39#54#1079#0#14"Semantic Issue1(3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m0000000000000000^39#41#39#49#1066#0#-2@128"Conflicting parameter types in implementation of 'getBuffer:length:': 'NSUInteger *' (aka 'unsigned long *') vs 'unsigned int *'-370148148#18446744073709551615#0#1(2@27"Previous definition is here-370148148#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^55#58#55#58#2150#0#21"Clang LLVM 1.0 Notice1(3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^55#45#55#57#2137#11#-1#27"com.apple.dt.IDE.diagnostic3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m0000000000000000^50#60#50#60#1399#0#14"Semantic Issue1(3@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m0000000000000000^50#45#50#59#1384#13#-0#0#0#-19%DVTDocumentLocation4@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m0000000000000000^2825"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingInputStream.o BBStreamingInputStream.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingInputStream.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingInputStream.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingInputStream.o36"44396DD1-0D19-468D-B6C5-0888B8797AC7-
-
-CCompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingOutputStream.o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148148.342425
-e370148148.419038
-r1
-xCompileC
-xbuild/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingOutputStream.o
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m:37:1: warning: conflicting return type in implementation of 'write:maxLength:': 'NSInteger' (aka 'long') vs 'int'
-o- (int)write:(const uint8_t *)buffer maxLength:(unsigned int)len
-o^  ~~~
-o/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:66:1: note: previous definition is here
-o- (NSInteger)write:(const uint8_t *)buffer maxLength:(NSUInteger)len;
-o^  ~~~~~~~~~
-o/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m:37:62: warning: conflicting parameter types in implementation of 'write:maxLength:': 'NSUInteger' (aka 'unsigned long') vs 'unsigned int'
-o- (int)write:(const uint8_t *)buffer maxLength:(unsigned int)len
-o                                                ~~~~~~~~     ^
-o/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:66:66: note: previous definition is here
-o- (NSInteger)write:(const uint8_t *)buffer maxLength:(NSUInteger)len;
-o                                                      ~~~~~~~~~~ ^
-o2 warnings generated.
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Compile /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m9e2558340310b641^01696b340310b641^-1099"/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m:37:1: warning: conflicting return type in implementation of 'write:maxLength:': 'NSInteger' (aka 'long') vs 'int'- (int)write:(const uint8_t *)buffer maxLength:(unsigned int)len^  ~~~/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:66:1: note: previous definition is here- (NSInteger)write:(const uint8_t *)buffer maxLength:(NSUInteger)len;^  ~~~~~~~~~/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m:37:62: warning: conflicting parameter types in implementation of 'write:maxLength:': 'NSUInteger' (aka 'unsigned long') vs 'unsigned int'- (int)write:(const uint8_t *)buffer maxLength:(unsigned int)len                                                ~~~~~~~~     ^/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h:66:66: note: previous definition is here- (NSInteger)write:(const uint8_t *)buffer maxLength:(NSUInteger)len;                                                      ~~~~~~~~~~ ^2 warnings generated.2(36%IDEClangDiagnosticActivityLogMessage2@98"Conflicting return type in implementation of 'write:maxLength:': 'NSInteger' (aka 'long') vs 'int'-370148148#18446744073709551615#0#1(2@27"Previous definition is here-370148148#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^65#0#65#0#2796#0#21"Clang LLVM 1.0 Notice1(3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^65#3#65#12#2799#0#-1#27"com.apple.dt.IDE.diagnostic3@110"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m0000000000000000^36#0#36#0#980#0#14"Semantic Issue1(3@110"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m0000000000000000^36#3#36#6#983#0#-2@121"Conflicting parameter types in implementation of 'write:maxLength:': 'NSUInteger' (aka 'unsigned long') vs 'unsigned int'-370148148#18446744073709551615#0#1(2@27"Previous definition is here-370148148#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^65#65#65#65#2861#0#21"Clang LLVM 1.0 Notice1(3@82"file://localhost/System/Library/Frameworks/Foundation.framework/Headers/NSStream.h0000000000000000^65#54#65#64#2850#0#-1#27"com.apple.dt.IDE.diagnostic3@110"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m0000000000000000^36#61#36#61#1041#0#14"Semantic Issue1(3@110"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m0000000000000000^36#48#36#56#1028#0#-0#0#0#-19%DVTDocumentLocation4@110"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m0000000000000000^2831"CompileC build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingOutputStream.o BBStreamingOutputStream.m normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -include /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch -MMD -MT dependencies -MF /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingOutputStream.d --serialize-diagnostics /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingOutputStream.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.m -o /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/BBStreamingOutputStream.o36"A8A43778-EC1C-43F6-98A6-0BA4E62472CE-
-
-CCopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXFileTransferDictionary.plist OBEXFileTransferDictionary.plist
-s370148146.467176
-e370148146.471346
-r1
-xCopyPlistFile
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXFileTransferDictionary.plist
-xOBEXFileTransferDictionary.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection37"Copy OBEXFileTransferDictionary.plist05c577320310b641^82ab78320310b641^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/OBEXFileTransferDictionary.plist0000000000000000^353"CopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXFileTransferDictionary.plist OBEXFileTransferDictionary.plist    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copyPlist --outdir /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources -- OBEXFileTransferDictionary.plist36"9D8174E7-1FEB-434E-8EDA-AE29DE82357F-
-
-CCopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXObjectPushDictionary.plist OBEXObjectPushDictionary.plist
-s370148146.467194
-e370148146.471697
-r1
-xCopyPlistFile
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXObjectPushDictionary.plist
-xOBEXObjectPushDictionary.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection35"Copy OBEXObjectPushDictionary.plist32c677320310b641^38c078320310b641^---0#0#0#-19%DVTDocumentLocation2@115"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/OBEXObjectPushDictionary.plist0000000000000000^347"CopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/OBEXObjectPushDictionary.plist OBEXObjectPushDictionary.plist    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copyPlist --outdir /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources -- OBEXObjectPushDictionary.plist36"9AF6F248-6D63-44D6-9C3B-ECD988DB23DF-
-
-CCopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/SerialPortDictionary.plist SerialPortDictionary.plist
-s370148146.467562
-e370148146.474615
-r1
-xCopyPlistFile
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/SerialPortDictionary.plist
-xSerialPortDictionary.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection31"Copy SerialPortDictionary.plistaed877320310b641^1a8879320310b641^---0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/SerialPortDictionary.plist0000000000000000^335"CopyPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/SerialPortDictionary.plist SerialPortDictionary.plist    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copyPlist --outdir /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources -- SerialPortDictionary.plist36"8C872A46-CF77-4F37-90B0-CBBD26BC7C8F-
-
-CCopyStringsFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-s370148146.467187
-e370148146.475013
-r1
-xCopyStringsFile
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/English.lproj/InfoPlist.strings
-xEnglish.lproj/InfoPlist.strings
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection36"Copy English.lproj/InfoPlist.stringsdec977320310b641^679d79320310b641^---0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/English.lproj/InfoPlist.strings0000000000000000^426"CopyStringsFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copyStrings --validate --inputencoding utf-16 --outputencoding UTF-16 --outdir /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/English.lproj -- English.lproj/InfoPlist.strings36"F057AAEC-BFC8-48A3-94A0-3B6183140A04-
-
-CCpHeader BBBluetoothChannelDelegate.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothChannelDelegate.h
-s370148146.455607
-e370148146.458540
-r1
-xCpHeader
-xBBBluetoothChannelDelegate.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothChannelDelegate.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothChannelDelegate.h4dbf74320310b641^8d6275320310b641^---0#0#0#-19%DVTDocumentLocation2@107"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothChannelDelegate.h000000000080d041^605"CpHeader BBBluetoothChannelDelegate.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothChannelDelegate.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothChannelDelegate.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"12B13B1C-A4E5-4E57-B3BC-8E3EADADF3D2-
-
-CCpHeader BBBluetoothOBEXClient.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXClient.h
-s370148146.439242
-e370148146.445580
-r1
-xCpHeader
-xBBBluetoothOBEXClient.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXClient.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXClient.hfed470320310b641^e4bd72320310b641^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXClient.h000000000080d041^590"CpHeader BBBluetoothOBEXClient.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXClient.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXClient.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"AE52DDAE-D141-4D48-944C-B9F72EE4635D-
-
-CCpHeader BBBluetoothOBEXServer.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXServer.h
-s370148146.439222
-e370148146.445130
-r1
-xCpHeader
-xBBBluetoothOBEXServer.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXServer.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXServer.he1b470320310b641^0e1272320310b641^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXServer.h000000000080d041^590"CpHeader BBBluetoothOBEXServer.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBBluetoothOBEXServer.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBBluetoothOBEXServer.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"1A24569B-AB9B-41EA-A1D3-013EAD9FE446-
-
-CCpHeader BBLocalDevice.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBLocalDevice.h
-s370148146.439445
-e370148146.444961
-r1
-xCpHeader
-xBBLocalDevice.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBLocalDevice.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBLocalDevice.h5fb770320310b641^76fe71320310b641^---0#0#0#-19%DVTDocumentLocation2@94"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBLocalDevice.h000000000080d041^566"CpHeader BBLocalDevice.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBLocalDevice.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBLocalDevice.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"1EED1080-42AC-4BAC-A802-A32B03B0AD4B-
-
-CCpHeader BBMutableOBEXHeaderSet.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBMutableOBEXHeaderSet.h
-s370148146.446595
-e370148146.450378
-r1
-xCpHeader
-xBBMutableOBEXHeaderSet.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBMutableOBEXHeaderSet.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBMutableOBEXHeaderSet.h4f9272320310b641^1b4c73320310b641^---0#0#0#-19%DVTDocumentLocation2@103"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBMutableOBEXHeaderSet.h000000000080d041^593"CpHeader BBMutableOBEXHeaderSet.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBMutableOBEXHeaderSet.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBMutableOBEXHeaderSet.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"4CA3614B-94F2-4B07-AB02-BFB27465FDD4-
-
-CCpHeader BBOBEXHeaderSet.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXHeaderSet.h
-s370148146.446640
-e370148146.449418
-r1
-xCpHeader
-xBBOBEXHeaderSet.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXHeaderSet.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXHeaderSet.h357d72320310b641^941573320310b641^---0#0#0#-19%DVTDocumentLocation2@96"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXHeaderSet.h000000000080d041^572"CpHeader BBOBEXHeaderSet.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXHeaderSet.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXHeaderSet.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"9F86C37B-46FA-47DA-9244-65BCA37ED3A8-
-
-CCpHeader BBOBEXRequest.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequest.h
-s370148146.447840
-e370148146.451643
-r1
-xCpHeader
-xBBOBEXRequest.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequest.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequest.h86cb72320310b641^129f73320310b641^---0#0#0#-19%DVTDocumentLocation2@94"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequest.h000000000080d041^566"CpHeader BBOBEXRequest.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequest.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequest.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"29121BE8-64D5-4152-81B1-D2A7C156AF6C-
-
-CCpHeader BBOBEXRequestHandler.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequestHandler.h
-s370148146.449060
-e370148146.454089
-r1
-xCpHeader
-xBBOBEXRequestHandler.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequestHandler.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection90"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequestHandler.hb11a73320310b641^414a74320310b641^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequestHandler.h000000000080d041^587"CpHeader BBOBEXRequestHandler.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXRequestHandler.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXRequestHandler.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"E6888D20-32CC-4BFC-9995-69C03D5E8693-
-
-CCpHeader BBOBEXResponse.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXResponse.h
-s370148146.455680
-e370148146.459642
-r1
-xCpHeader
-xBBOBEXResponse.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXResponse.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXResponse.hb5c274320310b641^8fab75320310b641^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXResponse.h000000000080d041^569"CpHeader BBOBEXResponse.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBOBEXResponse.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBOBEXResponse.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"B220E5C5-129F-43A5-ABFC-50CEF841ED49-
-
-CCpHeader BBServiceAdvertiser.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBServiceAdvertiser.h
-s370148146.450602
-e370148146.457709
-r1
-xCpHeader
-xBBServiceAdvertiser.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBServiceAdvertiser.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBServiceAdvertiser.h1fda73320310b641^7c2c75320310b641^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBServiceAdvertiser.h000000000080d041^584"CpHeader BBServiceAdvertiser.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBServiceAdvertiser.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBServiceAdvertiser.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"591E0D2B-72DE-4D8C-A8B1-9BE825E0BC96-
-
-CCpHeader BBStreamingInputStream.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingInputStream.h
-s370148146.439256
-e370148146.447793
-r1
-xCpHeader
-xBBStreamingInputStream.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingInputStream.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingInputStream.habeb70320310b641^68ce72320310b641^---0#0#0#-19%DVTDocumentLocation2@103"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingInputStream.h000000000080d041^593"CpHeader BBStreamingInputStream.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingInputStream.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingInputStream.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"CCACCFD3-51A6-4909-BEB9-7C39FB332346-
-
-CCpHeader BBStreamingOutputStream.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingOutputStream.h
-s370148146.451827
-e370148146.457321
-r1
-xCpHeader
-xBBStreamingOutputStream.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingOutputStream.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection93"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingOutputStream.hdac673320310b641^651a75320310b641^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingOutputStream.h000000000080d041^596"CpHeader BBStreamingOutputStream.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/BBStreamingOutputStream.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BBStreamingOutputStream.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"5F200519-954A-4DF9-B695-12D36F8B4618-
-
-CCpHeader LightAquaBlue.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/LightAquaBlue.h
-s370148146.450621
-e370148146.455092
-r1
-xCpHeader
-xLightAquaBlue.h
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/LightAquaBlue.h
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/LightAquaBlue.h927a73320310b641^1a8974320310b641^---0#0#0#-19%DVTDocumentLocation2@94"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/LightAquaBlue.h000000000080d041^566"CpHeader LightAquaBlue.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers/LightAquaBlue.h    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/LightAquaBlue.h /Library/Frameworks/LightAquaBlue.framework/Versions/A/Headers36"75415FE2-CCCF-442E-9BE3-993F875F9582-
-
-CCpResource BridgeSupport /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/BridgeSupport
-s370148146.472862
-e370148146.475894
-r1
-xCpResource
-xBridgeSupport
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/BridgeSupport
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Copy /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/BridgeSupport132d79320310b641^3dd579320310b641^---0#0#0#-19%DVTDocumentLocation2@94"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/BridgeSupport000000000080d041^566"CpResource BridgeSupport /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/BridgeSupport    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/BridgeSupport /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources36"22C35DDB-79EF-4B84-A683-C989FE4A7940-
-
-CLd /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue normal x86_64
-s370148148.498362
-e370148148.746164
-r1
-xLd
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue
-xnormal
-xx86_64
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Link /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue26aa7f340310b641^1005bf340310b641^---0#0#0#--977"Ld /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue normal x86_64    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv MACOSX_DEPLOYMENT_TARGET 10.8    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch x86_64 -dynamiclib -L/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release -filelist /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/Objects-normal/x86_64/LightAquaBlue.LinkFileList -install_name /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue -mmacosx-version-min=10.8 -fobjc-link-runtime -framework Cocoa -framework IOBluetooth -single_module -compatibility_version 1 -current_version 1 -o /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue36"4BE978A0-5A80-4764-A046-9B570DA7DD7C-
-
-CProcessInfoPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/Info.plist Info.plist
-s370148146.420974
-e370148146.430296
-r1
-xProcessInfoPlistFile
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/Info.plist
-xInfo.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Process Info.plist60ea6b320310b641^a8346e320310b641^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/Info.plist0000000000000000^341"ProcessInfoPlistFile /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/Info.plist Info.plist    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    builtin-infoPlistUtility Info.plist -expandbuildsettings -platform macosx -o /Library/Frameworks/LightAquaBlue.framework/Versions/A/Resources/Info.plist36"A4E1B961-2A5D-40F2-BA81-79E589C913A7-
-
-CProcessPCH /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch.pth LightAquaBlue_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s370148146.484095
-e370148147.935010
-r1
-xProcessPCH
-x/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch.pth
-xLightAquaBlue_Prefix.pch
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection35"Precompile LightAquaBlue_Prefix.pch910d7c320310b641^bc5def330310b641^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/LightAquaBlue_Prefix.pch0000000000000000^2727"ProcessPCH /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch.pth LightAquaBlue_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch x86_64 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.8 -Wno-sign-conversion "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/LightAquaBlue.hmap -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources/x86_64 -I/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/LightAquaBlue.build/Release/LightAquaBlue.build/DerivedSources -F/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release --serialize-diagnostics /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch.dia -c /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/LightAquaBlue_Prefix.pch -o /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/com.apple.Xcode.0/SharedPrecompiledHeaders/LightAquaBlue_Prefix-fdmitiaiewidweblxmbvbeelswxj/LightAquaBlue_Prefix.pch.d36"A503AA0C-92DB-4A23-84C2-A48CAA82D7DE-
-
-CSetMode u+w,go-w,a+rX /Library/Frameworks/LightAquaBlue.framework
-s370148148.809045
-e370148148.815621
-r1
-xSetMode
-xu+w,go-w,a+rX
-x/Library/Frameworks/LightAquaBlue.framework
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"SetMode u+w,go-w,a+rX /Library/Frameworks/LightAquaBlue.frameworkec2fcf340310b641^31cdd0340310b641^---0#0#0#-19%DVTDocumentLocation2@60"file://localhost/Library/Frameworks/LightAquaBlue.framework/0000000000000000^219"SetMode u+w,go-w,a+rX /Library/Frameworks/LightAquaBlue.framework    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /bin/chmod -RH u+w,go-w,a+rX /Library/Frameworks/LightAquaBlue.framework36"B6850ADB-795D-4B5B-914F-F67C374D7CC5-
-
-CSetOwnerAndGroup root:wheel /Library/Frameworks/LightAquaBlue.framework
-s370148148.790882
-e370148148.801217
-r1
-xSetOwnerAndGroup
-xroot:wheel
-x/Library/Frameworks/LightAquaBlue.framework
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"SetOwnerAndGroup root:wheel /Library/Frameworks/LightAquaBlue.framework548dca340310b641^6326cd340310b641^---0#0#0#-19%DVTDocumentLocation2@60"file://localhost/Library/Frameworks/LightAquaBlue.framework/0000000000000000^231"SetOwnerAndGroup "root:wheel" /Library/Frameworks/LightAquaBlue.framework    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /usr/sbin/chown -RH "root:wheel" /Library/Frameworks/LightAquaBlue.framework36"F3700538-0365-4895-9F2B-2D5BD6A11A13-
-
-CStrip /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue
-s370148148.769401
-e370148148.783302
-r1
-xStrip
-x/Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection74"Strip /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlueaf09c5340310b641^0187c8340310b641^---0#0#0#-19%DVTDocumentLocation2@84"file://localhost/Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue0000000000000000^320"Strip /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -S /Library/Frameworks/LightAquaBlue.framework/Versions/A/LightAquaBlue36"F7465C33-B609-45F8-8F7E-3B6BF2C71EE0-
-
-CSymLink /Library/Frameworks/LightAquaBlue.framework/Headers Versions/Current/Headers
-s370148146.405390
-e370148146.413255
-r1
-xSymLink
-x/Library/Frameworks/LightAquaBlue.framework/Headers
-xVersions/Current/Headers
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Process /Library/Frameworks/LightAquaBlue.framework/Headers19e367320310b641^79cb69320310b641^---0#0#0#--254"SymLink /Library/Frameworks/LightAquaBlue.framework/Headers Versions/Current/Headers    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /bin/ln -sf Versions/Current/Headers /Library/Frameworks/LightAquaBlue.framework/Headers36"12EEBA3B-0919-4992-A68D-DF461AA825CE-
-
-CSymLink /Library/Frameworks/LightAquaBlue.framework/LightAquaBlue Versions/Current/LightAquaBlue
-s370148146.382794
-e370148146.397605
-r1
-xSymLink
-x/Library/Frameworks/LightAquaBlue.framework/LightAquaBlue
-xVersions/Current/LightAquaBlue
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Process /Library/Frameworks/LightAquaBlue.framework/LightAquaBluee0f462320310b641^01db65320310b641^---0#0#0#--278"SymLink /Library/Frameworks/LightAquaBlue.framework/LightAquaBlue Versions/Current/LightAquaBlue    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /bin/ln -sf Versions/Current/LightAquaBlue /Library/Frameworks/LightAquaBlue.framework/LightAquaBlue36"7CF8E688-F26D-4739-8A3A-92811FC35F78-
-
-CSymLink /Library/Frameworks/LightAquaBlue.framework/Resources Versions/Current/Resources
-s370148146.382685
-e370148146.398297
-r1
-xSymLink
-x/Library/Frameworks/LightAquaBlue.framework/Resources
-xVersions/Current/Resources
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Process /Library/Frameworks/LightAquaBlue.framework/Resourcesbaf562320310b641^820366320310b641^---0#0#0#--262"SymLink /Library/Frameworks/LightAquaBlue.framework/Resources Versions/Current/Resources    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /bin/ln -sf Versions/Current/Resources /Library/Frameworks/LightAquaBlue.framework/Resources36"BB7FDFD5-FDC4-4F7A-9A13-D5D61D8467BD-
-
-CSymLink /Library/Frameworks/LightAquaBlue.framework/Versions/Current A
-s370148146.382679
-e370148146.398620
-r1
-xSymLink
-x/Library/Frameworks/LightAquaBlue.framework/Versions/Current
-xA
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Process /Library/Frameworks/LightAquaBlue.framework/Versions/Current30f662320310b641^a81d66320310b641^---0#0#0#--226"SymLink /Library/Frameworks/LightAquaBlue.framework/Versions/Current A    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /bin/ln -sf A /Library/Frameworks/LightAquaBlue.framework/Versions/Current36"F88E3E49-5DDA-453A-9380-A81262C631D8-
-
-CSymLink /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/LightAquaBlue.framework /Library/Frameworks/LightAquaBlue.framework
-s370148146.420969
-e370148146.430325
-r1
-xSymLink
-x/Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/LightAquaBlue.framework
-x/Library/Frameworks/LightAquaBlue.framework
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection114"Process /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/LightAquaBlue.framework19e76b320310b641^433c6e320310b641^---0#0#0#--333"SymLink build/Release/LightAquaBlue.framework /Library/Frameworks/LightAquaBlue.framework    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /bin/ln -sf /Library/Frameworks/LightAquaBlue.framework /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue/build/Release/LightAquaBlue.framework36"073C3E60-1D21-4918-BD01-284F4699C255-
-
-CTouch /Library/Frameworks/LightAquaBlue.framework
-s370148148.754500
-e370148148.761204
-r1
-xTouch
-x/Library/Frameworks/LightAquaBlue.framework
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Touch /Library/Frameworks/LightAquaBlue.framework103dc1340310b641^26e1c2340310b641^---0#0#0#--192"Touch /Library/Frameworks/LightAquaBlue.framework    cd /Users/N/Desktop/obex-map-client/lightblue-0.4/src/mac/LightAquaBlue    /usr/bin/touch -c /Library/Frameworks/LightAquaBlue.framework36"8D57222B-BAB4-4A8B-AE73-C0CBDF5EB6F6-
-

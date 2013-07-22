@@ -34,7 +34,7 @@ import _lightblueutil
 # public attributes
 __all__ = ("finddevices", "findservices", "finddevicename",
            "gethostaddr", "gethostclass",
-           "socket",
+           "socket", "pair",
            "advertise", "stopadvertise",
            "selectdevice", "selectservice")
 
@@ -46,8 +46,12 @@ _PROTOCOLS = { _lightbluecommon.RFCOMM: bluetooth.RFCOMM,
                _lightbluecommon.L2CAP: bluetooth.L2CAP }
 
 
-def finddevices(getnames=True, length=10):
-    return _SyncDeviceInquiry().run(getnames, length)
+def pair(addr):
+    # this is a stub
+    return
+
+def finddevices(getnames=True, timeout=10):
+    return _SyncDeviceInquiry().run(getnames, timeout)
 
 def findservices(addr=None, name=None, servicetype=None):
     # This always passes a uuid, to force PyBluez to use BlueZ 'search' instead
