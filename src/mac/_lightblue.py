@@ -470,8 +470,19 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
     def deviceInquiryStarted_(self, inquiry):
         if self.cb_started:
             self.cb_started()
-        
-        
+
+    # - (void)deviceInquiryDeviceNameUpdated:device:devicesRemaining:
+    def deviceInquiryDeviceNameUpdated_device_devicesRemaining_(self, sender,
+                                                              device,
+                                                              devicesRemaining):
+        pass
+
+    # - (void)deviceInquiryUpdatingDeviceNamesStarted:devicesRemaining:
+    def deviceInquiryUpdatingDeviceNamesStarted_devicesRemaining_(self, sender,
+                                                                devicesRemaining):
+        pass
+
+
 ### utility methods ###
 
     
