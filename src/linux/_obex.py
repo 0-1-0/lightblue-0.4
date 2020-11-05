@@ -40,6 +40,14 @@ class OBEXClient(object):
     __doc__ = _obexcommon._obexclientclassdoc
 
     def __init__(self, address, channel):
+        """
+        Initialize the connection.
+
+        Args:
+            self: (todo): write your description
+            address: (str): write your description
+            channel: (todo): write your description
+        """
         if not isinstance(address, types.StringTypes):
             raise TypeError("address must be string, was %s" % type(address))
         if not type(channel) == int:
@@ -51,6 +59,13 @@ class OBEXClient(object):
         self.__connectionid = None
 
     def connect(self, headers={}):
+        """
+        Connect to the smtp server.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+        """
         if self.__client is None:
             self.__setUp()
 
@@ -69,6 +84,13 @@ class OBEXClient(object):
 
 
     def disconnect(self, headers={}):
+        """
+        Disconnect the client.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+        """
         self.__checkconnected()
         try:
             try:
@@ -83,6 +105,14 @@ class OBEXClient(object):
 
 
     def put(self, headers, fileobj):
+        """
+        Replaces a file.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+            fileobj: (str): write your description
+        """
         if not hasattr(fileobj, "read"):
             raise TypeError("file-like object must have read() method")
         self.__checkconnected()
@@ -96,6 +126,13 @@ class OBEXClient(object):
 
 
     def delete(self, headers):
+        """
+        Delete a delete request.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+        """
         self.__checkconnected()
         try:
             resp = self.__client.request(_lightblueobex.PUT,
@@ -106,6 +143,14 @@ class OBEXClient(object):
 
 
     def get(self, headers, fileobj):
+        """
+        Perform a get request.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+            fileobj: (str): write your description
+        """
         if not hasattr(fileobj, "write"):
             raise TypeError("file-like must have write() method")
         self.__checkconnected()
@@ -118,6 +163,15 @@ class OBEXClient(object):
 
 
     def setpath(self, headers, cdtoparent=False, createdirs=False):
+        """
+        Sets the path of an object.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+            cdtoparent: (todo): write your description
+            createdirs: (str): write your description
+        """
         self.__checkconnected()
         flags = 0
         if cdtoparent:
@@ -135,6 +189,12 @@ class OBEXClient(object):
 
 
     def __setUp(self):
+        """
+        Sets the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__client is None:
             import bluetooth
             self.__sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
@@ -149,6 +209,12 @@ class OBEXClient(object):
                 raise OBEXError(str(e))
 
     def __closetransport(self):
+        """
+        Closes the connection.
+
+        Args:
+            self: (todo): write your description
+        """
         try:
             self.__sock.close()
         except:
@@ -157,10 +223,23 @@ class OBEXClient(object):
         self.__client = None
 
     def __checkconnected(self):
+        """
+        Checks if the client is connected.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__client is None:
             raise OBEXError("must connect() before sending other requests")
 
     def __createresponse(self, resp):
+        """
+        Creates a response : param response : class : ~google.
+
+        Args:
+            self: (todo): write your description
+            resp: (todo): write your description
+        """
         headers = resp[1]
         for hid, value in headers.items():
             if hid == 0x44:
@@ -172,6 +251,13 @@ class OBEXClient(object):
         return _obexcommon.OBEXResponse(resp[0], headers)
 
     def __convertheaders(self, headers):
+        """
+        Converts a dictionary of headers.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+        """
         result = {}
         for header, value in headers.items():
             if isinstance(header, types.StringTypes):
@@ -190,6 +276,15 @@ class OBEXClient(object):
         return result
 
     def __checkheadervalue(self, header, hid, value):
+        """
+        Check the headervalue header.
+
+        Args:
+            self: (todo): write your description
+            header: (str): write your description
+            hid: (todo): write your description
+            value: (todo): write your description
+        """
         mask = hid & _HEADER_MASK
         if mask == _HEADER_UNICODE:
             if not isinstance(value, types.StringTypes):
@@ -221,6 +316,14 @@ class OBEXClient(object):
 # ---------------------------------------------------------------------
 
 def sendfile(address, channel, source):
+    """
+    Send a file to the device.
+
+    Args:
+        address: (str): write your description
+        channel: (str): write your description
+        source: (str): write your description
+    """
     if not _lightbluecommon._isbtaddr(address):
         raise TypeError("address '%s' is not a valid bluetooth address" \
             % address)
@@ -270,6 +373,14 @@ def sendfile(address, channel, source):
 class OBEXObjectPushServer(object):
 
     def __init__(self, fileno, fileobject):
+        """
+        Initialize the file object.
+
+        Args:
+            self: (todo): write your description
+            fileno: (str): write your description
+            fileobject: (todo): write your description
+        """
         if not hasattr(fileobject, "write"):
             raise TypeError("fileobject must be file-like object with write() method")
         self.__fileobject = fileobject
@@ -277,6 +388,12 @@ class OBEXObjectPushServer(object):
                 self.newrequest, self.requestdone)
 
     def run(self):
+        """
+        Run the server.
+
+        Args:
+            self: (todo): write your description
+        """
         timeout = 60
         self.__gotfile = False
         self.__disconnected = False
@@ -316,6 +433,16 @@ class OBEXObjectPushServer(object):
 
 
     def newrequest(self, opcode, reqheaders, nonheaderdata, hasbody):
+        """
+        Returns a new request.
+
+        Args:
+            self: (todo): write your description
+            opcode: (str): write your description
+            reqheaders: (todo): write your description
+            nonheaderdata: (str): write your description
+            hasbody: (todo): write your description
+        """
         #print "-> newrequest", opcode, reqheaders, nonheaderdata, hasbody
         #print "-> incoming file name:", reqheaders.get(0x01)
         self.__busy = True
@@ -328,6 +455,13 @@ class OBEXObjectPushServer(object):
             return (_lightblueobex.NOT_IMPLEMENTED, {}, None)
 
     def requestdone(self, opcode):
+        """
+        Called when the request.
+
+        Args:
+            self: (todo): write your description
+            opcode: (str): write your description
+        """
         #print "-> requestdone", opcode
         if opcode == _lightblueobex.DISCONNECT:
             self.__disconnected = True
@@ -336,6 +470,14 @@ class OBEXObjectPushServer(object):
         self.__busy = False
 
     def error(self, exc, msg):
+        """
+        Conveniohttperror
+
+        Args:
+            self: (todo): write your description
+            exc: (todo): write your description
+            msg: (str): write your description
+        """
         #print "-> error:", exc, msg
         if self.__error is not None:
             #print "-> (keeping previous error)"
@@ -346,6 +488,13 @@ class OBEXObjectPushServer(object):
 # ---------------------------------------------------------------------
 
 def recvfile(sock, dest):
+    """
+    Receive a file from the socket.
+
+    Args:
+        sock: (str): write your description
+        dest: (str): write your description
+    """
     if sock is None:
         raise TypeError("Given socket is None")
     if not isinstance(dest, (types.StringTypes, types.FileType)):

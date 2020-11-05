@@ -29,6 +29,13 @@ __all__ = ("finddevices", "findservices", "finddevicename",
 __advertised = {}
 
 def finddevices(getnames=True, length=10):
+    """
+    Return a list.
+
+    Args:
+        getnames: (str): write your description
+        length: (int): write your description
+    """
     # originally this used DiscoverDevices in _lightblueutil extension, but
     # that blocks the UI
 
@@ -50,6 +57,14 @@ def finddevices(getnames=True, length=10):
     return inquiry.getfounddevices()
 
 def findservices(addr=None, name=None, servicetype=None):
+    """
+    Return a list of all services.
+
+    Args:
+        addr: (str): write your description
+        name: (str): write your description
+        servicetype: (str): write your description
+    """
     if servicetype is None:
         funcs = (_socket.bt_discover, _socket.bt_obex_discover)
     elif servicetype == _lightbluecommon.RFCOMM:
@@ -83,6 +98,13 @@ def findservices(addr=None, name=None, servicetype=None):
     return services
 
 def finddevicename(address, usecache=True):
+    """
+    Find the device name for the given address.
+
+    Args:
+        address: (str): write your description
+        usecache: (bool): write your description
+    """
     if not _lightbluecommon._isbtaddr(address):
         raise ValueError("%s is not a valid bluetooth address" % str(address))
         
@@ -100,6 +122,11 @@ def finddevicename(address, usecache=True):
     return name
 
 def gethostaddr():
+    """
+    Return the host address.
+
+    Args:
+    """
     import _lightblueutil
     try:
         addr = _lightblueutil.getLocalAddress()
@@ -109,6 +136,11 @@ def gethostaddr():
     return addr
 
 def gethostclass():
+    """
+    Return the device class.
+
+    Args:
+    """
     import _lightblueutil
     try:
         cod = _lightblueutil.getLocalDeviceClass()
@@ -118,6 +150,11 @@ def gethostclass():
     return cod
 
 def _gethostname():
+    """
+    Return the host name.
+
+    Args:
+    """
     import _lightblueutil
     try:
         name = _lightblueutil.getLocalName()
@@ -129,11 +166,25 @@ def _gethostname():
 class _SocketWrapper(object):
 
     def __init__(self, sock, connaddr=()):
+        """
+        Initialize a connection to the socket.
+
+        Args:
+            self: (todo): write your description
+            sock: (todo): write your description
+            connaddr: (str): write your description
+        """
         self.__dict__["_sock"] = sock
         self._setconnaddr(connaddr)
 
     # must implement accept() to return _SocketWrapper objects        
     def accept(self):
+        """
+        Accept a connection and return the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         conn, addr = self._sock.accept()
         
         # modify returned address cos PyS60 accept() only returns address, not 
@@ -143,6 +194,13 @@ class _SocketWrapper(object):
     accept.__doc__ = _lightbluecommon._socketdocs["accept"]        
         
     def bind(self, addr):
+        """
+        Bind a connection to a socket.
+
+        Args:
+            self: (todo): write your description
+            addr: (str): write your description
+        """
         # if port==0, find an available port
         if addr[1] == 0:
             addr = (addr[0], _getavailableport(self))
@@ -154,6 +212,12 @@ class _SocketWrapper(object):
     bind.__doc__ = _lightbluecommon._socketdocs["bind"]
 
     def close(self):
+        """
+        Closes the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         self._sock.close()
         
         # try to stop advertising
@@ -164,11 +228,25 @@ class _SocketWrapper(object):
     close.__doc__ = _lightbluecommon._socketdocs["close"]        
 
     def connect(self, addr):
+        """
+        Connect to a connection.
+
+        Args:
+            self: (todo): write your description
+            addr: (str): write your description
+        """
         self._sock.connect(addr)
         self._setconnaddr(addr)
     connect.__doc__ = _lightbluecommon._socketdocs["connect"]        
 
     def connect_ex(self, addr): 
+        """
+        Connect to a connection.
+
+        Args:
+            self: (todo): write your description
+            addr: (str): write your description
+        """
         try:
             self.connect(addr)
         except _socket.error, e:
@@ -178,10 +256,23 @@ class _SocketWrapper(object):
                 
     # must implement dup() to return _SocketWrapper objects                            
     def dup(self): 
+        """
+        Return a copy of the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         return _SocketWrapper(self._sock.dup())
     dup.__doc__ = _lightbluecommon._socketdocs["dup"]        
             
     def listen(self, backlog):
+        """
+        Listen for the socket.
+
+        Args:
+            self: (todo): write your description
+            backlog: (bool): write your description
+        """
         self._sock.listen(backlog)
         
         # when listen() is called, set a default security level since S60
@@ -194,12 +285,28 @@ class _SocketWrapper(object):
     # PyS60 raises socket.error("Bad protocol") when this is called for stream
     # sockets, but implement it here like recv() for consistency with Linux+Mac
     def recvfrom(self, bufsize, flags=0):
+        """
+        Receive a message from the socket.
+
+        Args:
+            self: (todo): write your description
+            bufsize: (int): write your description
+            flags: (todo): write your description
+        """
         return (self._sock.recv(bufsize, flags), None)
     recvfrom.__doc__ = _lightbluecommon._socketdocs["recvfrom"]        
 
     # PyS60 raises socket.error("Bad protocol") when this is called for stream
     # sockets, but implement it here like send() for consistency with Linux+Mac
     def sendto(self, data, *extra):
+        """
+        Send data to the socket.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+            extra: (dict): write your description
+        """
         if len(extra) == 1:
             address = extra[0]
             flags = 0
@@ -214,6 +321,14 @@ class _SocketWrapper(object):
     # sendall should return None on success but PyS60 seems to have it return
     # bytes sent like send
     def sendall(self, data, flags=0):
+        """
+        Send data to the socket.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+            flags: (int): write your description
+        """
         self.send(data, flags)
         return None
     sendall.__doc__ = _lightbluecommon._socketdocs["sendall"]       
@@ -224,6 +339,12 @@ class _SocketWrapper(object):
     # an outgoing channel like TCP sockets? But it seems handy to return the
     # channel we're communicating over anyway i.e. the local RFCOMM channel)
     def getpeername(self):
+        """
+        Get the peername.
+
+        Args:
+            self: (todo): write your description
+        """
         if not self._connaddr:
             raise _socket.error(57, "Socket is not connected")
         return self._connaddr         
@@ -231,24 +352,56 @@ class _SocketWrapper(object):
     
     # like getpeername(), PyS60 does not implement this method
     def getsockname(self):
+        """
+        Get the hostname of a connection.
+
+        Args:
+            self: (todo): write your description
+        """
         if not self._connaddr:     # sock is neither bound nor connected
             return ("00:00:00:00:00:00", 0)
         return (gethostaddr(), self._connaddr[1])
     getsockname.__doc__ = _lightbluecommon._socketdocs["getsockname"]
 
     def fileno(self): 
+        """
+        Returns a filter.
+
+        Args:
+            self: (todo): write your description
+        """
         raise NotImplementedError
     fileno.__doc__ = _lightbluecommon._socketdocs["fileno"]        
 
     def settimeout(self, timeout): 
+        """
+        Set the timeout of a timeout.
+
+        Args:
+            self: (todo): write your description
+            timeout: (float): write your description
+        """
         raise NotImplementedError
     settimeout.__doc__ = _lightbluecommon._socketdocs["settimeout"]                
 
     def gettimeout(self): 
+        """
+        Get the timeout of the request.
+
+        Args:
+            self: (todo): write your description
+        """
         return None
     gettimeout.__doc__ = _lightbluecommon._socketdocs["gettimeout"]                
 
     def _setconnaddr(self, connaddr):
+        """
+        Set the connection to the device.
+
+        Args:
+            self: (todo): write your description
+            connaddr: (str): write your description
+        """
         if len(connaddr) == 2:
             connaddr = (connaddr[0].upper(), connaddr[1])
         self.__dict__["_connaddr"] = connaddr             
@@ -264,6 +417,14 @@ class _SocketWrapper(object):
     del _m, _methoddef     
              
 def socket(proto=_lightbluecommon.RFCOMM):
+    """
+    Returns a socket.
+
+    Args:
+        proto: (todo): write your description
+        _lightbluecommon: (todo): write your description
+        RFCOMM: (todo): write your description
+    """
     if proto == _lightbluecommon.L2CAP:
         raise NotImplementedError("L2CAP sockets not supported on this platform")
     sock = _socket.socket(_socket.AF_BT, _socket.SOCK_STREAM, 
@@ -271,11 +432,25 @@ def socket(proto=_lightbluecommon.RFCOMM):
     return _SocketWrapper(sock)
 
 def _getavailableport(sock):
+    """
+    Return the socket socket.
+
+    Args:
+        sock: (todo): write your description
+    """
     # can just use bt_rfcomm_get_available_server_channel since only RFCOMM is 
     # currently supported
     return _socket.bt_rfcomm_get_available_server_channel(sock._sock)
 
 def advertise(name, sock, servicetype):
+    """
+    Advertise a service.
+
+    Args:
+        name: (str): write your description
+        sock: (todo): write your description
+        servicetype: (str): write your description
+    """
     if servicetype == _lightbluecommon.RFCOMM:
         servicetype = _socket.RFCOMM
     elif servicetype == _lightbluecommon.OBEX:
@@ -291,6 +466,12 @@ def advertise(name, sock, servicetype):
     __advertised[id(sock)] = (name, servicetype)
                                           
 def stopadvertise(sock):
+    """
+    Stops the socket.
+
+    Args:
+        sock: (todo): write your description
+    """
     details = __advertised.get(id(sock))
     if details is None:
         raise _lightbluecommon.BluetoothError("no service advertised")
@@ -299,6 +480,11 @@ def stopadvertise(sock):
     _socket.bt_advertise_service(name, sock._sock, False, servicetype)
 
 def selectdevice():
+    """
+    Return the light light light.
+
+    Args:
+    """
     import _lightblueutil
     try:
         result = _lightblueutil.selectDevice()
@@ -310,6 +496,11 @@ def selectdevice():
     return devinfo
 
 def selectservice():
+    """
+    Return the device.
+
+    Args:
+    """
     device = selectdevice()
     if device is None: 
         return None
@@ -326,17 +517,38 @@ def selectservice():
 # Returns a list of (addr, channel, name) service tuples from a device 
 # address and a dictionary of {name: channel} mappings.
 def _getservicetuples(devaddr, servicesdict):
+    """
+    Return a list of device addresses.
+
+    Args:
+        devaddr: (str): write your description
+        servicesdict: (dict): write your description
+    """
     return [(devaddr.upper(), channel, name) for name, channel in servicesdict.items()]
         
 class _DeviceInquiry(object):
 
     def __init__(self):
+        """
+        Initialize the device.
+
+        Args:
+            self: (todo): write your description
+        """
         super(_DeviceInquiry, self).__init__()
         self._founddevices = []
         self._resolver = None
         self._done = False
 
     def start(self, getnames, length):   
+        """
+        Start the device.
+
+        Args:
+            self: (todo): write your description
+            getnames: (str): write your description
+            length: (int): write your description
+        """
         self._founddevices = []
         self._done = False
         
@@ -346,9 +558,21 @@ class _DeviceInquiry(object):
         self._resolver.discover(self._founddevice, None, getnames)
         
     def isdone(self):
+        """
+        Returns a boolean indicating whether the result.
+
+        Args:
+            self: (todo): write your description
+        """
         return self._done
         
     def stop(self):
+        """
+        Stop the task.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.isdone():
             return
         
@@ -358,9 +582,26 @@ class _DeviceInquiry(object):
             self._done = True
         
     def getfounddevices(self):
+        """
+        Returns the device object : return : class :.
+
+        Args:
+            self: (todo): write your description
+        """
         return self._founddevices[:]
 
     def _founddevice(self, err, addr, name, devclass, param):
+        """
+        Initialize a single usb device.
+
+        Args:
+            self: (todo): write your description
+            err: (todo): write your description
+            addr: (str): write your description
+            name: (str): write your description
+            devclass: (todo): write your description
+            param: (todo): write your description
+        """
         try:    
             if err == 0:  # no err
                 #print "Found device", addr

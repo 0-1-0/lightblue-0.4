@@ -76,6 +76,14 @@ class OBEXResponse:
     """
 
     def __init__(self, code, rawheaders):
+        """
+        Initialize the http response.
+
+        Args:
+            self: (todo): write your description
+            code: (int): write your description
+            rawheaders: (list): write your description
+        """
         self.__code = code
         self.__reason = _OBEX_RESPONSES.get(code, "Unknown response code")
         self.__rawheaders = rawheaders
@@ -100,6 +108,12 @@ class OBEXResponse:
         return self.__rawheaders.get(header, default)
 
     def __getheaders(self):
+        """
+        Returns the headers.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__headers is None:
             self.__headers = {}
             for headerid, value in self.__rawheaders.items():
@@ -112,6 +126,12 @@ class OBEXResponse:
             doc='The response headers, as a dictionary with string keys.')
 
     def __repr__(self):
+        """
+        Return a string representation of - serializable representation.
+
+        Args:
+            self: (todo): write your description
+        """
         return "<OBEXResponse reason='%s' code=0x%02x (0x%02x) headers=%s>" % \
             (self.__reason, self.__code, (self.__code | 0x80), str(self.headers))
 
@@ -123,12 +143,33 @@ try:
         """UTC"""
     
         def utcoffset(self, dt):
+            """
+            Returns a datetime object to utc.
+
+            Args:
+                self: (todo): write your description
+                dt: (todo): write your description
+            """
             return datetime.timedelta(0)
     
         def tzname(self, dt):
+            """
+            Returns a string representation of the given datetime object.
+
+            Args:
+                self: (todo): write your description
+                dt: (todo): write your description
+            """
             return "UTC"
     
         def dst(self, dt):
+            """
+            Return a datetime.
+
+            Args:
+                self: (todo): write your description
+                dt: (todo): write your description
+            """
             return datetime.timedelta(0)
 except:
     pass    # no datetime on pys60
@@ -137,6 +178,12 @@ except:
 _LOCAL_TIME_FORMAT = "%Y%m%dT%H%M%S"
 _UTC_TIME_FORMAT = _LOCAL_TIME_FORMAT + "Z"
 def _datetimefromstring(s):
+    """
+    Parse a datetime.
+
+    Args:
+        s: (todo): write your description
+    """
     import time
     if s[-1:] == "Z":
         # add UTC() instance as tzinfo

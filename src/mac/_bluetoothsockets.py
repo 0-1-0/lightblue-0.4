@@ -50,6 +50,12 @@ except AttributeError:
 
 
 def _getavailableport(proto):
+    """
+    Returns a serial port.
+
+    Args:
+        proto: (todo): write your description
+    """
     # Just advertise a service and see what channel it was assigned, then
     # stop advertising the service and return the channel.
     # It's a hacky way of doing it, but IOBluetooth doesn't seem to provide
@@ -74,6 +80,13 @@ def _getavailableport(proto):
 
 
 def _checkaddrpair(address, checkbtaddr=True):
+    """
+    Checks the address is a valid.
+
+    Args:
+        address: (str): write your description
+        checkbtaddr: (bool): write your description
+    """
     # will want checkbtaddr=False if the address might be empty string 
     # (for binding to a server address)
     
@@ -103,6 +116,11 @@ def _checkaddrpair(address, checkbtaddr=True):
 class _closedsocket(object):
     __slots__ = []
     def _dummy(*args):
+        """
+        Dummy dummy.
+
+        Args:
+        """
         raise _socket.error(errno.EBADF, 'Bad file descriptor')
     send = recv = sendto = recvfrom = __getattr__ = _dummy
 
@@ -112,15 +130,34 @@ class _closedsocket(object):
 # (this is a modified version)
 class _StringQueue(object):
     def __init__(self):
+        """
+        Initialize the thread.
+
+        Args:
+            self: (todo): write your description
+        """
         self.l_buffer = []
         self.s_buffer = ""
         self.lock = threading.RLock()
         self.bufempty = True
 
     def empty(self):
+        """
+        Returns the empty string.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.bufempty
 
     def write(self, data):
+        """
+        Writes data to the stream.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+        """
         # no type check, and assumes data is not empty!
         #append data to list, no need to "".join just yet.
         self.lock.acquire()
@@ -131,6 +168,12 @@ class _StringQueue(object):
             self.lock.release()
 
     def _build_str(self):
+        """
+        Build string representation of the string representation.
+
+        Args:
+            self: (todo): write your description
+        """
         #build a new string out of list
         new_string = "".join([str(x.tobytes()) for x in self.l_buffer])
         #join string buffer and new string
@@ -139,10 +182,23 @@ class _StringQueue(object):
         self.l_buffer = []
 
     def __len__(self):
+        """
+        Returns the length of the buffer
+
+        Args:
+            self: (todo): write your description
+        """
         #calculate length without needing to _build_str
         return sum([len(i) for i in self.l_buffer]) + len(self.s_buffer)
 
     def read(self, count):
+        """
+        Reads a string.
+
+        Args:
+            self: (todo): write your description
+            count: (int): write your description
+        """
         self.lock.acquire()
         try:
             #if string doesn't have enough chars to satisfy caller
@@ -194,18 +250,43 @@ class _SocketWrapper(object):
     """
 
     def __init__(self, sock):
+        """
+        Sets the socket.
+
+        Args:
+            self: (todo): write your description
+            sock: (todo): write your description
+        """
         self._sock = sock
 
     def accept(self):
+        """
+        Accepts a socket.
+
+        Args:
+            self: (todo): write your description
+        """
         sock, addr = self._sock.accept()
         return _SocketWrapper(sock), addr
     accept.__doc__ = _lightbluecommon._socketdocs["accept"]
         
     def dup(self):
+        """
+        Dupair of the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         return _SocketWrapper(self._sock)        
     dup.__doc__ = _lightbluecommon._socketdocs["dup"]
 
     def close(self):        
+        """
+        Close the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         self._sock.close()
         
         self._sock = _closedsocket()
@@ -219,12 +300,27 @@ class _SocketWrapper(object):
     close.__doc__ = _lightbluecommon._socketdocs["close"]
         
     def makefile(self, mode='r', bufsize=-1):
+        """
+        Return a socket.
+
+        Args:
+            self: (todo): write your description
+            mode: (str): write your description
+            bufsize: (int): write your description
+        """
         # use std lib socket's _fileobject
         return _socket._fileobject(self._sock, mode, bufsize)
     makefile.__doc__ = _lightbluecommon._socketdocs["makefile"]        
 
     # delegate all other method calls to internal sock obj
     def __getattr__(self, attr):
+        """
+        Get an attribute from an attribute.
+
+        Args:
+            self: (todo): write your description
+            attr: (str): write your description
+        """
         return getattr(self._sock, attr)
 
 
@@ -236,6 +332,13 @@ class _BluetoothSocket(object):
 
     # conn is the associated _RFCOMMConnection or _L2CAPConnection
     def __init__(self, conn):    
+        """
+        Initialize a connection.
+
+        Args:
+            self: (todo): write your description
+            conn: (todo): write your description
+        """
         self.__conn = conn
         
         if conn is not None and conn.channel is not None:
@@ -260,12 +363,23 @@ class _BluetoothSocket(object):
         self.__commstate = -1 
         
     def accept(self):
+        """
+        Accepts a new socket.
+
+        Args:
+            self: (todo): write your description
+        """
         if not self.__isbound():
             raise _socket.error('Socket not bound')
         if not self.__islistening():
             raise _socket.error('Socket must be listening first')
         
         def clientconnected():
+            """
+            Returns the number of pending channels.
+
+            Args:
+            """
             return len(self.__queuedchannels) > 0
         if not clientconnected():
             self.__waituntil(clientconnected, "accept timed out")
@@ -283,6 +397,13 @@ class _BluetoothSocket(object):
         return (sock, sock.getpeername())
         
     def bind(self, address):
+        """
+        Bind to the connection to the given address.
+
+        Args:
+            self: (todo): write your description
+            address: (str): write your description
+        """
         _checkaddrpair(address, False)
         if self.__isbound():
             raise _socket.error('Socket is already bound')
@@ -315,6 +436,12 @@ class _BluetoothSocket(object):
         self.__port = address[1]
         
     def close(self):
+        """
+        Closes the connection.
+
+        Args:
+            self: (todo): write your description
+        """
         wasconnected = self.__isconnected() or self.__isbound()
         self.__stopevents()
         
@@ -340,6 +467,13 @@ class _BluetoothSocket(object):
 
             
     def connect(self, address):
+        """
+        Establish a connection.
+
+        Args:
+            self: (todo): write your description
+            address: (str): write your description
+        """
         if self.__isbound():
             raise _socket.error("Can't connect, socket has been bound")
         elif self.__isconnected():
@@ -386,6 +520,13 @@ class _BluetoothSocket(object):
         _macutil.waitfor(0.5)
 
     def connect_ex(self, address):
+        """
+        Connect to the connection.
+
+        Args:
+            self: (todo): write your description
+            address: (str): write your description
+        """
         try:
             self.connect(address)
         except _socket.error, err:
@@ -398,11 +539,23 @@ class _BluetoothSocket(object):
         return 0
         
     def getpeername(self):
+        """
+        Get the address of the device.
+
+        Args:
+            self: (todo): write your description
+        """
         self.__checkconnected()
         addr = _macutil.formatdevaddr(self.__remotedevice.getAddressString())   
         return (addr, self._getport())
             
     def getsockname(self):
+        """
+        Return the name of the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__isbound() or self.__isconnected():
             import lightblue
             return (lightblue.gethostaddr(), self._getport())
@@ -410,6 +563,13 @@ class _BluetoothSocket(object):
             return ("00:00:00:00:00:00", 0)
 
     def listen(self, backlog):
+        """
+        Listen to listen for events.
+
+        Args:
+            self: (todo): write your description
+            backlog: (bool): write your description
+        """
         if self.__islistening():
             return
 
@@ -427,6 +587,12 @@ class _BluetoothSocket(object):
         
         
     def _isclosed(self):
+        """
+        Returns true if the connection is closed.
+
+        Args:
+            self: (todo): write your description
+        """
         # isOpen() check doesn't work for incoming (server-spawned) channels            
         if (self.__conn.proto == _lightbluecommon.RFCOMM and 
                 self.__conn.channel is not None and
@@ -436,6 +602,14 @@ class _BluetoothSocket(object):
 
 
     def recv(self, bufsize, flags=0):
+        """
+        Receive data from the socket.
+
+        Args:
+            self: (todo): write your description
+            bufsize: (int): write your description
+            flags: (int): write your description
+        """
         if self.__commstate in (SHUT_RD, SHUT_RDWR):
             return ""
         self.__checkconnected()
@@ -459,6 +633,11 @@ class _BluetoothSocket(object):
         # if incoming data buffer is empty, wait until data is available or
         # channel is closed
         def gotdata():
+            """
+            Return a : attr : ~.
+
+            Args:
+            """
             return not self.__incomingdata.empty() or self._isclosed()
         if not gotdata():
             self.__waituntil(gotdata, "recv timed out")
@@ -473,16 +652,40 @@ class _BluetoothSocket(object):
     # recvfrom() is really for datagram sockets not stream sockets but it 
     # can be implemented anyway.
     def recvfrom(self, bufsize, flags=0):
+        """
+        Receive data from the socket.
+
+        Args:
+            self: (todo): write your description
+            bufsize: (int): write your description
+            flags: (todo): write your description
+        """
         # stream sockets return None, instead of address
         return (self.recv(bufsize, flags), None)
         
     def sendall(self, data, flags=0):
+        """
+        Send data to the socket.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+            flags: (int): write your description
+        """
         sentbytescount = self.send(data, flags)
         while sentbytescount < len(data):
             sentbytescount += self.send(data[sentbytescount:], flags)
         return None
         
     def send(self, data, flags=0):
+        """
+        Send data to the transport.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+            flags: (str): write your description
+        """
         if not isinstance(data, types.StringTypes):
             raise TypeError("data must be string, was %s" % type(data))
         if self.__commstate in (SHUT_WR, SHUT_RDWR):
@@ -543,6 +746,13 @@ class _BluetoothSocket(object):
     # sendto() is really for datagram sockets not stream sockets but it 
     # can be implemented anyway.
     def sendto(self, data, *args):
+        """
+        Send data to the socket.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+        """
         if len(args) == 1:
             address = args[0]
             flags = 0
@@ -558,30 +768,74 @@ class _BluetoothSocket(object):
         return self.send(data, flags)        
         
     def fileno(self):
+        """
+        Returns a filter.
+
+        Args:
+            self: (todo): write your description
+        """
         raise NotImplementedError
 
     def getsockopt(self, level, optname, buflen=0):
+        """
+        Sets a socket.
+
+        Args:
+            self: (todo): write your description
+            level: (int): write your description
+            optname: (str): write your description
+            buflen: (todo): write your description
+        """
         # see what options on Linux+s60
         # possibly have socket security option.
         raise _socket.error(
             errno.ENOPROTOOPT, os.strerror(errno.ENOPROTOOPT))   
         
     def setsockopt(self, level, optname, value):
+        """
+        Set the value of a socket socket.
+
+        Args:
+            self: (todo): write your description
+            level: (int): write your description
+            optname: (str): write your description
+            value: (todo): write your description
+        """
         # see what options on Linux+s60    
         # possibly have socket security option.        
         raise _socket.error(
             errno.ENOPROTOOPT, os.strerror(errno.ENOPROTOOPT))   
         
     def setblocking(self, flag):
+        """
+        Set the flag.
+
+        Args:
+            self: (todo): write your description
+            flag: (todo): write your description
+        """
         if flag == 0:
             self.__timeout = 0      # non-blocking
         else:
             self.__timeout = None   # blocking
         
     def gettimeout(self):
+        """
+        Get the timeout of the request.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.__timeout
         
     def settimeout(self, value):
+        """
+        Sets the timeout.
+
+        Args:
+            self: (todo): write your description
+            value: (todo): write your description
+        """
         if value is not None and not isinstance(value, (float, int)):
             msg = "timeout value must be a number or None, was %s" % \
                 type(value)
@@ -592,12 +846,25 @@ class _BluetoothSocket(object):
         self.__timeout = value
         
     def shutdown(self, how):
+        """
+        Shutdown the socket.
+
+        Args:
+            self: (todo): write your description
+            how: (str): write your description
+        """
         if how not in (SHUT_RD, SHUT_WR, SHUT_RDWR):
             raise _socket.error(22, "Invalid argument")
         self.__commstate = how
         
     # This method is called from outside this file.
     def _getport(self):
+        """
+        Return the port number.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__isconnected():
             return self.__conn.getport()
         if self.__isbound():
@@ -606,6 +873,12 @@ class _BluetoothSocket(object):
 
     # This method is called from outside this file.            
     def _getchannel(self):
+        """
+        Get the channel.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__conn is None:
             return None
         return self.__conn.channel
@@ -613,11 +886,26 @@ class _BluetoothSocket(object):
     # Called by the event listener when data is available
     # 'channel' is IOBluetoothRFCOMMChannel or IOBluetoothL2CAPChannel object
     def _handle_channeldata(self, channel, data):
+        """
+        Handle incoming data received.
+
+        Args:
+            self: (todo): write your description
+            channel: (todo): write your description
+            data: (array): write your description
+        """
         self.__incomingdata.write(data)
         _macutil.interruptwait()
 
     # Called by the event listener when a client connects to a server socket        
     def _handle_channelopened(self, channel):
+        """
+        Handle a new channel.
+
+        Args:
+            self: (todo): write your description
+            channel: (todo): write your description
+        """
         # put new channels into a queue, which 'accept' can then pull out
         self.__queuedchannels_lock.acquire()
         try:
@@ -630,6 +918,13 @@ class _BluetoothSocket(object):
             
     # Called by the event listener when the channel is closed.
     def _handle_channelclosed(self, channel):
+        """
+        Handle a closed when a channel is closed.
+
+        Args:
+            self: (todo): write your description
+            channel: (todo): write your description
+        """
         # beware that this value won't actually be set until the event loop
         # has been driven so that this method is actually called
         self.__closed = True
@@ -657,6 +952,12 @@ class _BluetoothSocket(object):
                     raise _socket.timeout(timeoutmsg)
                     
     def __createlistener(self):
+        """
+        Creates a listener.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__isbound():
             return _ChannelServerEventListener.alloc().initWithDelegate_port_protocol_(self, 
                     self._getport(), self.__conn.proto)
@@ -669,25 +970,61 @@ class _BluetoothSocket(object):
         
     # should not call this if connect() has been called to connect this socket
     def __startevents(self):
+        """
+        Starts the event listener.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__eventlistener is not None:
             raise _lightbluecommon.BluetoothError("socket already listening")
         self.__eventlistener = self.__createlistener()
         
     def __stopevents(self):
+        """
+        Stop the listener.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__eventlistener is not None:
             self.__eventlistener.close()
             
     def __islistening(self):
+        """
+        Returns an iterable of events.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.__eventlistener is not None            
                 
     # returns whether socket is a bound server socket
     def __isbound(self):
+        """
+        Returns true if the port is bound.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.__port != 0
         
     def __isconnected(self):
+        """
+        Returns true if the connection is closed.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.__conn.channel is not None                
         
     def __checkconnected(self):
+        """
+        Check if the connection is connected.
+
+        Args:
+            self: (todo): write your description
+        """
         if not self.__isconnected():
             # not connected, raise "socket not connected"
             raise _socket.error(errno.ENOTCONN, os.strerror(errno.ENOTCONN))
@@ -706,10 +1043,26 @@ class _RFCOMMConnection(object):
     proto = _lightbluecommon.RFCOMM
 
     def __init__(self, channel=None):
+        """
+        Initialize a new channel.
+
+        Args:
+            self: (todo): write your description
+            channel: (todo): write your description
+        """
         # self.channel is accessed by _BluetoothSocket parent
         self.channel = channel
     
     def connect(self, device, port, listener):
+        """
+        Establish a connection.
+
+        Args:
+            self: (todo): write your description
+            device: (todo): write your description
+            port: (int): write your description
+            listener: (todo): write your description
+        """
         # open RFCOMM channel (should timeout actually apply to opening of
         # channel as well? if so need to do timeout with async callbacks)
         try:
@@ -725,6 +1078,13 @@ class _RFCOMMConnection(object):
         return result
         
     def write(self, data):
+        """
+        Write data to the socket.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+        """
         if self.channel is None:
             raise _socket.error("socket not connected")
         return \
@@ -732,9 +1092,21 @@ class _RFCOMMConnection(object):
                 buffer(data), self.channel)
         
     def getwritemtu(self):
+        """
+        Returns a list of channel
+
+        Args:
+            self: (todo): write your description
+        """
         return self.channel.getMTU()
         
     def getport(self):
+        """
+        Get the port of this channel.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.channel.getChannelID()
         
         
@@ -743,10 +1115,26 @@ class _L2CAPConnection(object):
     proto = _lightbluecommon.L2CAP
     
     def __init__(self, channel=None):
+        """
+        Initialize a new channel.
+
+        Args:
+            self: (todo): write your description
+            channel: (todo): write your description
+        """
         # self.channel is accessed by _BluetoothSocket parent
         self.channel = channel    
 
     def connect(self, device, port, listener):
+        """
+        Connect to the connection.
+
+        Args:
+            self: (todo): write your description
+            device: (todo): write your description
+            port: (int): write your description
+            listener: (todo): write your description
+        """
         try:
             # pyobjc 2.0
             result, self.channel = device.openL2CAPChannelSync_withPSM_delegate_(None, port, listener.delegate())
@@ -760,6 +1148,13 @@ class _L2CAPConnection(object):
         return result
         
     def write(self, data):
+        """
+        Write data to the socket.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+        """
         if self.channel is None:
             raise _socket.error("socket not connected")
         return \
@@ -767,9 +1162,21 @@ class _L2CAPConnection(object):
                 buffer(data), self.channel)        
         
     def getwritemtu(self):
+        """
+        Returns a list of channel.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.channel.getOutgoingMTU()        
 
     def getport(self):
+        """
+        Get the current port
+
+        Args:
+            self: (todo): write your description
+        """
         return self.channel.getPSM()
         
                                 
@@ -811,9 +1218,22 @@ class _ChannelEventListener(Foundation.NSObject):
     initWithDelegate_ = objc.selector(initWithDelegate_, signature="@@:@")
         
     def delegate(self):
+        """
+        Return the current thread.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.__channelDelegate
     
     def registerclosenotif(self, channel):
+        """
+        Register a channel.
+
+        Args:
+            self: (todo): write your description
+            channel: (todo): write your description
+        """
         # oddly enough, sometimes the channelClosed: selector doesn't get called
         # (maybe if there's a lot of data being passed?) but this seems to work
         notif = channel.registerForChannelCloseNotification_selector_(self, 
@@ -822,10 +1242,24 @@ class _ChannelEventListener(Foundation.NSObject):
             self.__closenotif = notif
     
     def close(self):
+        """
+        Close the manager.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__closenotif is not None:
             self.__closenotif.unregister()
         
     def channelClosedEvent_channel_(self, notif, channel):
+        """
+        Handle a channel event.
+
+        Args:
+            self: (todo): write your description
+            notif: (bool): write your description
+            channel: (todo): write your description
+        """
         if hasattr(self.__cb_obj, '_handle_channelclosed'):
             self.__cb_obj._handle_channelclosed(channel)        
     channelClosedEvent_channel_ = objc.selector(
@@ -834,6 +1268,14 @@ class _ChannelEventListener(Foundation.NSObject):
     # implement method from BBBluetoothChannelDelegateObserver protocol:
     # - (void)channelData:(id)channel data:(NSData *)data;
     def channelData_data_(self, channel, data):
+        """
+        Handle a channel.
+
+        Args:
+            self: (todo): write your description
+            channel: (int): write your description
+            data: (todo): write your description
+        """
         if hasattr(self.__cb_obj, '_handle_channeldata'):
             self.__cb_obj._handle_channeldata(channel, data[:])
     channelData_data_ = objc.selector(channelData_data_, signature="v@:@@")
@@ -841,6 +1283,13 @@ class _ChannelEventListener(Foundation.NSObject):
     # implement method from BBBluetoothChannelDelegateObserver protocol:        
     # - (void)channelClosed:(id)channel;
     def channelClosed_(self, channel):
+        """
+        Handle a channel.
+
+        Args:
+            self: (todo): write your description
+            channel: (todo): write your description
+        """
         if hasattr(self.__cb_obj, '_handle_channelclosed'):
             self.__cb_obj._handle_channelclosed(channel)
     channelClosed_ = objc.selector(channelClosed_, signature="v@:@")            
@@ -885,6 +1334,12 @@ class _ChannelServerEventListener(Foundation.NSObject):
         initWithDelegate_port_protocol_, signature="@@:@ii")
 
     def close(self):
+        """
+        Close the usernotot.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__usernotif is not None:
             self.__usernotif.unregister()   
         
@@ -911,6 +1366,12 @@ _SOCKET_CLASSES = { _lightbluecommon.RFCOMM: _RFCOMMConnection,
                     _lightbluecommon.L2CAP:  _L2CAPConnection }
 
 def _getsocketobject(proto):
+    """
+    Returns an object corresponding to beocket object.
+
+    Args:
+        proto: (str): write your description
+    """
     if proto not in _SOCKET_CLASSES.keys():
         raise ValueError("Unknown socket protocol, must be L2CAP or RFCOMM")
     return _SocketWrapper(_BluetoothSocket(_SOCKET_CLASSES[proto]()))

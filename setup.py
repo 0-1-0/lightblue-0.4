@@ -7,6 +7,11 @@ LINUX = sys.platform.startswith("linux")
 MAC = sys.platform.startswith("darwin")
 
 def getpackagedir():
+    """
+    Get the iririr.
+
+    Args:
+    """
     if MAC:
         return "src/mac"
     elif LINUX:
@@ -15,6 +20,11 @@ def getpackagedir():
         raise Exception("Unsupported platform")
 
 def getextensions():
+    """
+    Return a list of all linux extension extensions.
+
+    Args:
+    """
     if LINUX:
         linux_ext = Extension("_lightblueutil",
             libraries=["bluetooth"], # C libraries

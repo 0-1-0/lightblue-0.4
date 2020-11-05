@@ -56,16 +56,34 @@ __all__ = ("OBEXClient", "sendfile", "recvfile")
 _obexerrorcodes = { 0: "no error", -21850: "general error", -21851: "no resources", -21852: "operation not supported", -21853: "internal error", -21854: "bad argument", -21855: "timeout", -21856: "bad request", -21857: "cancelled", -21875: "session is busy", -21876: "OBEX session not connected", -21877: "bad request in OBEX session", -21878: "bad response from other party", -21879: "Bluetooth transport not available", -21880: "Bluetooth transport connection died", -21881: "OBEX session timed out", -21882: "OBEX session already connected" }
 
 def errdesc(errorcode):
+    """
+    Return an error message.
+
+    Args:
+        errorcode: (int): write your description
+    """
     return _obexerrorcodes.get(errorcode, str(errorcode))
 
     
 # OBEXSession provides response codes with the final bit set, but OBEXResponse 
 # class expects the response code to not have the final bit set.
 def _cutresponsefinalbit(responsecode):
+    """
+    Return a decoded from the response.
+
+    Args:
+        responsecode: (str): write your description
+    """
     return (responsecode & ~_OBEX_FINAL_MASK)
     
     
 def _headersdicttoset(headers):
+    """
+    Convert headers from headers.
+
+    Args:
+        headers: (dict): write your description
+    """
     headerset = BBMutableOBEXHeaderSet.alloc().init()
     for header, value in headers.items():
         if isinstance(header, types.StringTypes):
@@ -105,6 +123,12 @@ def _headersdicttoset(headers):
     
 # returns in { header-id: value } form.
 def _headersettodict(headerset):
+    """
+    Convert headers to dict.
+
+    Args:
+        headerset: (todo): write your description
+    """
     headers = {}
     for number in headerset.allHeaders():
         hid = number.unsignedCharValue()
@@ -130,6 +154,14 @@ class OBEXClient(object):
     __doc__ = _obexcommon._obexclientclassdoc
     
     def __init__(self, address, channel):
+        """
+        Initialize the device.
+
+        Args:
+            self: (todo): write your description
+            address: (str): write your description
+            channel: (todo): write your description
+        """
         if not _lightbluecommon._isbtaddr(address):  
             raise TypeError("address '%s' is not a valid bluetooth address"
                 % address)
@@ -146,6 +178,13 @@ class OBEXClient(object):
         
                     
     def connect(self, headers={}):
+        """
+        Connect to the connection.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+        """
         if self.__client is None:
             if not BBLocalDevice.isPoweredOn():
                 raise OBEXError(_kOBEXSessionNoTransportError, 
@@ -180,6 +219,13 @@ class OBEXClient(object):
         
         
     def disconnect(self, headers={}):
+        """
+        Disconnects from the client.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+        """
         self.__checkconnected()
         self.__reset()
         try:
@@ -201,6 +247,14 @@ class OBEXClient(object):
 
 
     def put(self, headers, fileobj):
+        """
+        Upload a file to a stream.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+            fileobj: (str): write your description
+        """
         if not hasattr(fileobj, "read"):
             raise TypeError("file-like object must have read() method")       
         self.__checkconnected()            
@@ -223,6 +277,13 @@ class OBEXClient(object):
         
         
     def delete(self, headers):      
+        """
+        Delete a post request.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+        """
         self.__checkconnected()
         self.__reset()
         headerset = _headersdicttoset(headers)
@@ -240,6 +301,14 @@ class OBEXClient(object):
         
         
     def get(self, headers, fileobj):
+        """
+        Perform a get request.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+            fileobj: (str): write your description
+        """
         if not hasattr(fileobj, "write"):
             raise TypeError("file-like object must have write() method")
             
@@ -262,6 +331,15 @@ class OBEXClient(object):
         
         
     def setpath(self, headers, cdtoparent=False, createdirs=False):
+        """
+        Set the path of the path.
+
+        Args:
+            self: (todo): write your description
+            headers: (dict): write your description
+            cdtoparent: (todo): write your description
+            createdirs: (str): write your description
+        """
         self.__checkconnected()
         self.__reset()
         headerset = _headersdicttoset(headers)       
@@ -278,9 +356,23 @@ class OBEXClient(object):
                 
 
     def _done(self):
+        """
+        Returns true if - > false otherwise.
+
+        Args:
+            self: (todo): write your description
+        """
         return not self.__busy
         
     def _finishedrequest(self, error, response):
+        """
+        Called when a response.
+
+        Args:
+            self: (todo): write your description
+            error: (todo): write your description
+            response: (todo): write your description
+        """
         if error in (_kOBEXSessionNoTransportError,
                      _kOBEXSessionTransportDiedError):
             self.__closetransport()
@@ -290,6 +382,13 @@ class OBEXClient(object):
         _macutil.interruptwait()
         
     def _setobexsession(self, session):
+        """
+        Sets the session.
+
+        Args:
+            self: (todo): write your description
+            session: (todo): write your description
+        """
         self.__obexsession = session
         
     # Note that OBEXSession returns kOBEXSessionNotConnectedError if you don't
@@ -297,11 +396,23 @@ class OBEXClient(object):
     # must send connect() before other requests, so this restriction is enforced
     # in the Linux version as well, for consistency.
     def __checkconnected(self):
+        """
+        Checks if client.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__client is None:
             raise OBEXError(_kOBEXSessionNotConnectedError, 
                     "must connect() before sending other requests")        
 
     def __closetransport(self):
+        """
+        Closes the connection.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__client is not None:
             try:
                 self.__client.RFCOMMChannel().closeChannel()
@@ -311,16 +422,34 @@ class OBEXClient(object):
         self.__client = None                
         
     def __reset(self):
+        """
+        Reset the bus.
+
+        Args:
+            self: (todo): write your description
+        """
         self.__busy = True
         self.__error = None
         self.__response = None
 
     def __getresponse(self):
+        """
+        Returns a response object from the response.
+
+        Args:
+            self: (todo): write your description
+        """
         code = self.__response.responseCode()
         rawheaders = _headersettodict(self.__response.allHeaders())
         return _obexcommon.OBEXResponse(_cutresponsefinalbit(code), rawheaders)
 
     def __del__(self):
+        """
+        Deliver the client.
+
+        Args:
+            self: (todo): write your description
+        """
         if self.__client is not None:
             self.__client.__del__()
         super(OBEXClient, self).__del__()
@@ -338,12 +467,25 @@ class OBEXClient(object):
 class _BBOBEXClientDelegate(NSObject):
 
     def initWithCallback_(self, cb_requestdone):
+        """
+        Initialize the request handler.
+
+        Args:
+            self: (todo): write your description
+            cb_requestdone: (todo): write your description
+        """
         self = super(_BBOBEXClientDelegate, self).init()
         self._cb_requestdone = cb_requestdone
         return self
     initWithCallback_ = objc.selector(initWithCallback_, signature="@@:@")
 
     def __del__(self):
+        """
+        Deletes the client.
+
+        Args:
+            self: (todo): write your description
+        """
         super(_BBOBEXClientDelegate, self).dealloc()
 
     #
@@ -356,6 +498,15 @@ class _BBOBEXClientDelegate(NSObject):
     #       response:(BBOBEXResponse *)response;
     def client_didFinishConnectRequestWithError_response_(self, client, error,
             response):
+        """
+        Handle an error handler.
+
+        Args:
+            self: (todo): write your description
+            client: (todo): write your description
+            error: (todo): write your description
+            response: (todo): write your description
+        """
         self._cb_requestdone(error, response)
     client_didFinishConnectRequestWithError_response_ = objc.selector(
         client_didFinishConnectRequestWithError_response_, signature="v@:@i@")
@@ -365,6 +516,15 @@ class _BBOBEXClientDelegate(NSObject):
     #       response:(BBOBEXResponse *)response;
     def client_didFinishDisconnectRequestWithError_response_(self, client,
             error, response):
+        """
+        Handle an error handler.
+
+        Args:
+            self: (todo): write your description
+            client: (todo): write your description
+            error: (todo): write your description
+            response: (todo): write your description
+        """
         self._cb_requestdone(error, response)
     client_didFinishDisconnectRequestWithError_response_ = objc.selector(
         client_didFinishDisconnectRequestWithError_response_,signature="v@:@i@")
@@ -375,6 +535,16 @@ class _BBOBEXClientDelegate(NSObject):
     #       response:(BBOBEXResponse *)response;
     def client_didFinishPutRequestForStream_error_response_(self, client,
             instream, error, response):
+        """
+        Handle an error.
+
+        Args:
+            self: (todo): write your description
+            client: (todo): write your description
+            instream: (str): write your description
+            error: (todo): write your description
+            response: (todo): write your description
+        """
         self._cb_requestdone(error, response)
     client_didFinishPutRequestForStream_error_response_ = objc.selector(
         client_didFinishPutRequestForStream_error_response_,signature="v@:@@i@")
@@ -385,6 +555,16 @@ class _BBOBEXClientDelegate(NSObject):
     #       response:(BBOBEXResponse *)response;
     def client_didFinishGetRequestForStream_error_response_(self, client,
             outstream, error, response):
+        """
+        Handle a client error handler.
+
+        Args:
+            self: (todo): write your description
+            client: (todo): write your description
+            outstream: (str): write your description
+            error: (todo): write your description
+            response: (todo): write your description
+        """
         self._cb_requestdone(error, response)
     client_didFinishGetRequestForStream_error_response_ = objc.selector(
         client_didFinishGetRequestForStream_error_response_,signature="v@:@@i@")
@@ -394,6 +574,15 @@ class _BBOBEXClientDelegate(NSObject):
     #       response:(BBOBEXResponse *)response;
     def client_didFinishSetPathRequestWithError_response_(self, client, error,
             response):
+        """
+        Handle client error handler.
+
+        Args:
+            self: (todo): write your description
+            client: (todo): write your description
+            error: (todo): write your description
+            response: (todo): write your description
+        """
         self._cb_requestdone(error, response)
     client_didFinishSetPathRequestWithError_response_ = objc.selector(
         client_didFinishSetPathRequestWithError_response_, signature="v@:@i@")
@@ -405,6 +594,14 @@ class _BBOBEXClientDelegate(NSObject):
 # ------------------------------------------------------------------
             
 def sendfile(address, channel, source):
+    """
+    Send a file to the device.
+
+    Args:
+        address: (str): write your description
+        channel: (str): write your description
+        source: (str): write your description
+    """
     if not _lightbluecommon._isbtaddr(address):  
         raise TypeError("address '%s' is not a valid bluetooth address" %
                 address)
@@ -447,6 +644,14 @@ def sendfile(address, channel, source):
 class BBOBEXObjectPushServer(NSObject):
 
     def initWithChannel_fileLikeObject_(self, channel, fileobject):
+        """
+        Initializes a channel object.
+
+        Args:
+            self: (todo): write your description
+            channel: (todo): write your description
+            fileobject: (todo): write your description
+        """
         if not isinstance(channel, IOBluetoothRFCOMMChannel) and \
                 not isinstance(channel, OBEXSession):
             raise TypeError("internal error, channel is of wrong type %s" %
@@ -474,6 +679,12 @@ class BBOBEXObjectPushServer(NSObject):
         
         
     def run(self):
+        """
+        Run the server.
+
+        Args:
+            self: (todo): write your description
+        """
         self.__server.run()
     
         # wait until client sends a file, or an error occurs
@@ -495,6 +706,12 @@ class BBOBEXObjectPushServer(NSObject):
             raise OBEXError(_kOBEXGeneralError, "client did not send a file")
 
     def __del__(self):
+        """
+        Deletes the object.
+
+        Args:
+            self: (todo): write your description
+        """
         super(BBOBEXObjectPushServer, self).dealloc()
         
     #
@@ -506,6 +723,14 @@ class BBOBEXObjectPushServer(NSObject):
     # - (BOOL)server:(BBBluetoothOBEXServer *)server
     # shouldHandleConnectRequest:(BBOBEXHeaderSet *)requestHeaders;        
     def server_shouldHandleConnectRequest_(self, server, requestheaders):
+        """
+        Determine if the given the request.
+
+        Args:
+            self: (todo): write your description
+            server: (str): write your description
+            requestheaders: (todo): write your description
+        """
         return True
     server_shouldHandleConnectRequest_ = objc.selector(   
         server_shouldHandleConnectRequest_, signature="c@:@@")        
@@ -513,6 +738,14 @@ class BBOBEXObjectPushServer(NSObject):
     # - (BOOL)server:(BBBluetoothOBEXServer *)server
     # shouldHandleDisconnectRequest:(BBOBEXHeaderSet *)requestHeaders;    
     def server_shouldHandleDisconnectRequest_(self, server, requestheaders):
+        """
+        Determine if the server is running.
+
+        Args:
+            self: (todo): write your description
+            server: (str): write your description
+            requestheaders: (todo): write your description
+        """
         self.__gotdisconnect = True    
         _macutil.interruptwait()
         return True
@@ -521,6 +754,13 @@ class BBOBEXObjectPushServer(NSObject):
         
     # - (void)serverDidHandleDisconnectRequest:(BBBluetoothOBEXServer *)server;
     def serverDidHandleDisconnectRequest_(self, server):
+        """
+        Establish a server.
+
+        Args:
+            self: (todo): write your description
+            server: (todo): write your description
+        """
         self.__disconnected = True
         _macutil.interruptwait()
     serverDidHandleDisconnectRequest_ = objc.selector(
@@ -529,6 +769,14 @@ class BBOBEXObjectPushServer(NSObject):
     # - (NSOutputStream *)server:(BBBluetoothOBEXServer *)server
     # shouldHandlePutRequest:(BBOBEXHeaderSet *)requestHeaders;        
     def server_shouldHandlePutRequest_(self, server, requestheaders):
+        """
+        Determine if the request should be sent.
+
+        Args:
+            self: (todo): write your description
+            server: (todo): write your description
+            requestheaders: (todo): write your description
+        """
         #print "Incoming file:", requestHeaders.valueForNameHeader()
         self.delegate = _macutil.BBFileLikeObjectWriter.alloc().initWithFileLikeObject_(self.__fileobject)
         outstream = BBStreamingOutputStream.alloc().initWithDelegate_(self.delegate)
@@ -542,6 +790,15 @@ class BBOBEXObjectPushServer(NSObject):
     #   requestWasAborted:(BOOL)aborted;        
     def server_didHandlePutRequestForStream_requestWasAborted_(self, server,
             stream, aborted):
+        """
+        Reads the stream.
+
+        Args:
+            self: (todo): write your description
+            server: (todo): write your description
+            stream: (str): write your description
+            aborted: (todo): write your description
+        """
         if aborted:
             self.__error = (_kOBEXGeneralError, "client aborted file transfer")
         else:
@@ -555,6 +812,15 @@ class BBOBEXObjectPushServer(NSObject):
     # errorOccurred:(OBEXError)error
     #   description:(NSString *)description;        
     def server_errorOccurred_description_(self, server, error, desc):
+        """
+        Emit a server server server server.
+
+        Args:
+            self: (todo): write your description
+            server: (str): write your description
+            error: (todo): write your description
+            desc: (todo): write your description
+        """
         self.__error = (error, desc)
         _macutil.interruptwait()
     server_errorOccurred_description_ = objc.selector(
@@ -565,6 +831,13 @@ class BBOBEXObjectPushServer(NSObject):
 # ------------------------------------------------------------------              
     
 def recvfile(sock, dest):
+    """
+    Receive a file from the socket.
+
+    Args:
+        sock: (todo): write your description
+        dest: (str): write your description
+    """
     if sock is None:
         raise TypeError("Given socket is None")
     if not isinstance(dest, (types.StringTypes, types.FileType)):

@@ -34,20 +34,46 @@ FTP_TARGET_UUID = '\xf9\xec{\xc4\x95<\x11\xd2\x98NRT\x00\xdc\x9e\t'
 class FTPClient(object):
 
     def __init__(self, address, port):
+        """
+        Initialize a new tunnel.
+
+        Args:
+            self: (todo): write your description
+            address: (str): write your description
+            port: (int): write your description
+        """
         self.client = lightblue.obex.OBEXClient(address, port)
 
     def connect(self):
+        """
+        Establish the connection.
+
+        Args:
+            self: (todo): write your description
+        """
         response = self.client.connect({'target': FTP_TARGET_UUID})
         if response.code != lightblue.obex.OK:
             raise Exception('OBEX server refused Connect request (server \
                 response was "%s")' % response.reason)
 
     def disconnect(self):
+        """
+        Disconnects from the client.
+
+        Args:
+            self: (todo): write your description
+        """
         print "Disconnecting..."
         response = self.client.disconnect()
         print 'Server response:', response.reason
 
     def ls(self):
+        """
+        List files.
+
+        Args:
+            self: (todo): write your description
+        """
         import StringIO
         dirlist = StringIO.StringIO()
         response = self.client.get({'type': 'x-obex/folder-listing'}, dirlist)
@@ -62,6 +88,13 @@ class FTPClient(object):
                     print '\t', f
 
     def cd(self, dirname):
+        """
+        Change working directory.
+
+        Args:
+            self: (todo): write your description
+            dirname: (str): write your description
+        """
         if dirname == os.sep:
             # change to root dir
             response = self.client.setpath({'name': ''})
@@ -74,6 +107,13 @@ class FTPClient(object):
         print 'Server response:', response.reason
 
     def put(self, filename):
+        """
+        Upload a file
+
+        Args:
+            self: (todo): write your description
+            filename: (str): write your description
+        """
         print 'Sending %s...' % filename
         try:
             f = file(filename, 'rb')
@@ -85,6 +125,13 @@ class FTPClient(object):
         print 'Server response:', response.reason
 
     def get(self, filename):
+        """
+        Download a file
+
+        Args:
+            self: (todo): write your description
+            filename: (str): write your description
+        """
         if os.path.isfile(filename):
             if raw_input("Overwrite local file %s?" % filename).lower() != "y":
                 return
@@ -95,14 +142,35 @@ class FTPClient(object):
         print 'Server response:', response.reason
 
     def rm(self, filename):
+        """
+        Delete a file.
+
+        Args:
+            self: (todo): write your description
+            filename: (str): write your description
+        """
         response = self.client.delete({'name': filename})
         print 'Server response:', response.reason
 
     def mkdir(self, dirname):
+        """
+        Create a directory.
+
+        Args:
+            self: (todo): write your description
+            dirname: (str): write your description
+        """
         response = self.client.setpath({'name': dirname}, createdirs=True)
         print 'Server response:', response.reason
 
     def rmdir(self, dirname):
+        """
+        Delete a directory.
+
+        Args:
+            self: (todo): write your description
+            dirname: (str): write your description
+        """
         response = self.client.delete({'name': dirname})
         print 'Server response:', response.reason
         if response.code == lightblue.obex.PRECONDITION_FAILED:
@@ -141,6 +209,12 @@ class FTPClient(object):
 
 
 def processcommands(ftpclient):
+    """
+    Process raw raw command.
+
+    Args:
+        ftpclient: (todo): write your description
+    """
     while True:
         input = raw_input('\nEnter command: ')
         cmd = input.split(" ")[0].lower()

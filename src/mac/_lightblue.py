@@ -43,6 +43,13 @@ __advertised = {}
 
 
 def finddevices(getnames=True, length=10):
+    """
+    Returns a list of the given devices.
+
+    Args:
+        getnames: (str): write your description
+        length: (int): write your description
+    """
     inquiry = _SyncDeviceInquiry()
     inquiry.run(getnames, length)
     devices = inquiry.getfounddevices()
@@ -50,6 +57,14 @@ def finddevices(getnames=True, length=10):
 
 
 def findservices(addr=None, name=None, servicetype=None):
+    """
+    Find a list of services matching hardware hardware devices.
+
+    Args:
+        addr: (str): write your description
+        name: (str): write your description
+        servicetype: (str): write your description
+    """
     if servicetype not in (_lightbluecommon.RFCOMM, _lightbluecommon.OBEX, None):
         raise ValueError("servicetype must be RFCOMM, OBEX or None, was %s" % \
             servicetype)
@@ -110,6 +125,13 @@ def findservices(addr=None, name=None, servicetype=None):
 
 
 def finddevicename(address, usecache=True):
+    """
+    Find the device name.
+
+    Args:
+        address: (str): write your description
+        usecache: (bool): write your description
+    """
     if not _lightbluecommon._isbtaddr(address):
         raise TypeError("%s is not a valid bluetooth address" % str(address))
 
@@ -134,6 +156,11 @@ def finddevicename(address, usecache=True):
 ### local device ###
 
 def gethostaddr():
+    """
+    Return the host address.
+
+    Args:
+    """
     addr = _LightAquaBlue.BBLocalDevice.getAddressString()
     if addr is not None:
         # PyObjC returns all strings as unicode, but the address doesn't need 
@@ -143,6 +170,11 @@ def gethostaddr():
 
 
 def gethostclass():
+    """
+    Return the host class.
+
+    Args:
+    """
     cod = _LightAquaBlue.BBLocalDevice.getClassOfDevice()
     if cod != -1:
         return int(cod)
@@ -150,6 +182,11 @@ def gethostclass():
 
 
 def _gethostname():
+    """
+    Return the host name.
+
+    Args:
+    """
     name = _LightAquaBlue.BBLocalDevice.getName()
     if name is not None:
         return name
@@ -159,12 +196,28 @@ def _gethostname():
 ### socket ###
 
 def socket(proto=_lightbluecommon.RFCOMM):
+    """
+    Return the socket socket.
+
+    Args:
+        proto: (todo): write your description
+        _lightbluecommon: (todo): write your description
+        RFCOMM: (todo): write your description
+    """
     return _bluetoothsockets._getsocketobject(proto)
         
 ### advertising services ###
 
 
 def advertise(name, sock, servicetype):
+    """
+    Acknowledge of a service.
+
+    Args:
+        name: (str): write your description
+        sock: (todo): write your description
+        servicetype: (str): write your description
+    """
     if not isinstance(name, types.StringTypes):
         raise TypeError("name must be string, was %s" % \
             type(name))
@@ -211,6 +264,12 @@ def advertise(name, sock, servicetype):
     
     
 def stopadvertise(sock):
+    """
+    Stops the service.
+
+    Args:
+        sock: (todo): write your description
+    """
     if sock is None:
         raise TypeError("Given socket is None")
 
@@ -228,6 +287,11 @@ def stopadvertise(sock):
 
 
 def selectdevice():
+    """
+    Selects a selectdevice.
+
+    Args:
+    """
     import _IOBluetoothUI
     gui = _IOBluetoothUI.IOBluetoothDeviceSelectorController.deviceSelector()
     
@@ -260,6 +324,11 @@ def selectdevice():
 
 
 def selectservice():
+    """
+    Selects the service service.
+
+    Args:
+    """
     import _IOBluetoothUI
     gui = _IOBluetoothUI.IOBluetoothServiceBrowserController.serviceBrowserController_(
             _macutil.kIOBluetoothServiceBrowserControllerOptionsNone)
@@ -300,6 +369,14 @@ class _SDPQueryRunner(Foundation.NSObject):
     """
 
     def query(self, device, timeout=10.0):
+        """
+        Query the device query.
+
+        Args:
+            self: (todo): write your description
+            device: (todo): write your description
+            timeout: (float): write your description
+        """
         # do SDP query
         err = device.performSDPQuery_(self)
         if err != _macutil.kIOReturnSuccess:
@@ -318,6 +395,14 @@ class _SDPQueryRunner(Foundation.NSObject):
                 self._queryresult, self._errmsg(device))
         
     def sdpQueryComplete_status_(self, device, status):
+        """
+        Interrupt the device.
+
+        Args:
+            self: (todo): write your description
+            device: (todo): write your description
+            status: (str): write your description
+        """
         # can't raise exception during a callback, so just keep the err value
         self._queryresult = status
         _macutil.interruptwait()
@@ -325,12 +410,25 @@ class _SDPQueryRunner(Foundation.NSObject):
         sdpQueryComplete_status_, signature="v@:@i")    # accept object, int
             
     def _errmsg(self, device):
+        """
+        Return an error message.
+
+        Args:
+            self: (todo): write your description
+            device: (todo): write your description
+        """
         return "Error getting services for %s" % device.getNameOrAddress()
             
             
 class _SyncDeviceInquiry(object):
 
     def __init__(self):
+        """
+        Initialize the device.
+
+        Args:
+            self: (todo): write your description
+        """
         super(_SyncDeviceInquiry, self).__init__()        
             
         self._inquiry = _AsyncDeviceInquiry.alloc().init()
@@ -339,6 +437,14 @@ class _SyncDeviceInquiry(object):
         self._inquiring = False
         
     def run(self, getnames, duration):
+        """
+        Runs a command.
+
+        Args:
+            self: (todo): write your description
+            getnames: (str): write your description
+            duration: (float): write your description
+        """
         if self._inquiring:
             raise _lightbluecommon.BluetoothError(
                 "Another inquiry in progress")
@@ -366,17 +472,37 @@ class _SyncDeviceInquiry(object):
                 "Error during device inquiry")
             
     def getfounddevices(self):
+        """
+        Return a list of all devices.
+
+        Args:
+            self: (todo): write your description
+        """
         # return as list of device-info tuples
         return [_getdevicetuple(device) for device in \
                     self._inquiry.getfounddevices()]
         
     def _inquirycomplete(self, err, aborted):
+        """
+        Waits for the given error.
+
+        Args:
+            self: (todo): write your description
+            err: (todo): write your description
+            aborted: (todo): write your description
+        """
         if err != 188:      # no devices found
             self._inquiryerr = err
         self._inquiring = False
         _macutil.interruptwait()
         
     def __del__(self):
+        """
+        Deliver the device.
+
+        Args:
+            self: (todo): write your description
+        """
         self._inquiry.__del__()
         super(_SyncDeviceInquiry, self).__del__()
 
@@ -398,6 +524,12 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
 
     # NSObject init, not python __init__
     def init(self):
+        """
+        Initialize the device.
+
+        Args:
+            self: (todo): write your description
+        """
         try:
             attr = _IOBluetooth.IOBluetoothDeviceInquiry
         except AttributeError:
@@ -418,6 +550,13 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
     
     # length property
     def _setlength(self, length):
+        """
+        Sets the length of the stream.
+
+        Args:
+            self: (todo): write your description
+            length: (int): write your description
+        """
         self._inquiry.setInquiryLength_(length)
     length = property(
             lambda self: self._inquiry.inquiryLength(),
@@ -425,6 +564,13 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
             
     # updatenames property
     def _setupdatenames(self, update):
+        """
+        Setup the list of the device names.
+
+        Args:
+            self: (todo): write your description
+            update: (todo): write your description
+        """
         self._inquiry.setUpdateNewDeviceNames_(update)
     updatenames = property(
             lambda self: self._inquiry.updateNewDeviceNames(),
@@ -432,17 +578,41 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
 
     # returns error code
     def start(self):
+        """
+        Starts the start.
+
+        Args:
+            self: (todo): write your description
+        """
         return self._inquiry.start()
 
     # returns error code
     def stop(self):
+        """
+        Stops the daemon.
+
+        Args:
+            self: (todo): write your description
+        """
         return self._inquiry.stop()
         
     # returns list of IOBluetoothDevice objects
     def getfounddevices(self):
+        """
+        Returns a list of devices.
+
+        Args:
+            self: (todo): write your description
+        """
         return self._inquiry.foundDevices()
         
     def __del__(self):
+        """
+        Deliver the device.
+
+        Args:
+            self: (todo): write your description
+        """
         super(_AsyncDeviceInquiry, self).dealloc()
         
         
@@ -454,6 +624,14 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
     # - (void)deviceInquiryDeviceFound:(IOBluetoothDeviceInquiry*)sender 
     #                           device:(IOBluetoothDevice*)device;
     def deviceInquiryDeviceFound_device_(self, inquiry, device):
+        """
+        Callback called when a device is received.
+
+        Args:
+            self: (todo): write your description
+            inquiry: (todo): write your description
+            device: (todo): write your description
+        """
         if self.cb_founddevice:
             self.cb_founddevice(device)
     deviceInquiryDeviceFound_device_ = objc.selector(
@@ -461,6 +639,15 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
     
     # - (void)deviceInquiryComplete:error:aborted;
     def deviceInquiryComplete_error_aborted_(self, inquiry, err, aborted):
+        """
+        Callback for when a callback is received.
+
+        Args:
+            self: (todo): write your description
+            inquiry: (todo): write your description
+            err: (todo): write your description
+            aborted: (todo): write your description
+        """
         if self.cb_completed:
             self.cb_completed(err, aborted)
     deviceInquiryComplete_error_aborted_ = objc.selector(
@@ -468,6 +655,13 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
              
     # - (void)deviceInquiryStarted:(IOBluetoothDeviceInquiry*)sender;             
     def deviceInquiryStarted_(self, inquiry):
+        """
+        Callback called when a device callback.
+
+        Args:
+            self: (todo): write your description
+            inquiry: (todo): write your description
+        """
         if self.cb_started:
             self.cb_started()
 
@@ -475,11 +669,28 @@ class _AsyncDeviceInquiry(Foundation.NSObject):
     def deviceInquiryDeviceNameUpdated_device_devicesRemaining_(self, sender,
                                                               device,
                                                               devicesRemaining):
+        """
+        Sets the device device is enabled.
+
+        Args:
+            self: (todo): write your description
+            sender: (todo): write your description
+            device: (str): write your description
+            devicesRemaining: (todo): write your description
+        """
         pass
 
     # - (void)deviceInquiryUpdatingDeviceNamesStarted:devicesRemaining:
     def deviceInquiryUpdatingDeviceNamesStarted_devicesRemaining_(self, sender,
                                                                 devicesRemaining):
+        """
+        Starts a device devices.
+
+        Args:
+            self: (todo): write your description
+            sender: (todo): write your description
+            devicesRemaining: (todo): write your description
+        """
         pass
 
 

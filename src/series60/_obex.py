@@ -26,6 +26,14 @@ from _obexcommon import OBEXError
 __all__ = ("sendfile", "recvfile")
 
 def sendfile(address, channel, source):
+    """
+    Send a file to the network.
+
+    Args:
+        address: (str): write your description
+        channel: (str): write your description
+        source: (str): write your description
+    """
     if not isinstance(source, (types.StringTypes, types.FileType)):
         raise TypeError("source must be string or built-in file object")
         
@@ -60,6 +68,13 @@ def sendfile(address, channel, source):
                         (localpath, str(e))
 
 def recvfile(sock, dest):
+    """
+    Copy a file from the remote device.
+
+    Args:
+        sock: (str): write your description
+        dest: (todo): write your description
+    """
     if not isinstance(dest, (types.StringTypes, types.FileType)):
         raise TypeError("dest must be string or built-in file object")     
     
@@ -88,6 +103,13 @@ def recvfile(sock, dest):
 
 # receives file and saves to local path
 def _recvfile(sock, localpath):
+    """
+    Receive a file
+
+    Args:
+        sock: (todo): write your description
+        localpath: (str): write your description
+    """
 
     # PyS60's bt_obex_receive() won't receive the file if given a file path
     # that already exists (it tells the client there's a conflict error). So
@@ -120,6 +142,12 @@ def _recvfile(sock, localpath):
 
 # Must point to C:\ because can't write in start-up dir (on Z:?)
 def _tempfilename(basename="C:\\lightblue_obex_received_file"):
+    """
+    Return a new filename for a given basename.
+
+    Args:
+        basename: (str): write your description
+    """
     version = 1
     while os.path.isfile(basename):
         version += 1

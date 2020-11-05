@@ -47,9 +47,24 @@ _PROTOCOLS = { _lightbluecommon.RFCOMM: bluetooth.RFCOMM,
 
 
 def finddevices(getnames=True, length=10):
+    """
+    Returns a list of the given device.
+
+    Args:
+        getnames: (str): write your description
+        length: (int): write your description
+    """
     return _SyncDeviceInquiry().run(getnames, length)
 
 def findservices(addr=None, name=None, servicetype=None):
+    """
+    Return a list of installed on the system.
+
+    Args:
+        addr: (str): write your description
+        name: (str): write your description
+        servicetype: (str): write your description
+    """
     # This always passes a uuid, to force PyBluez to use BlueZ 'search' instead
     # of 'browse', otherwise some services won't get found. If you use BlueZ's
     # <sdptool search> or <sdptool records> sometimes you'll get services that
@@ -79,6 +94,13 @@ def findservices(addr=None, name=None, servicetype=None):
 
 
 def finddevicename(address, usecache=True):
+    """
+    Find a device name by address.
+
+    Args:
+        address: (str): write your description
+        usecache: (bool): write your description
+    """
     if not _lightbluecommon._isbtaddr(address):
         raise ValueError("%s is not a valid bluetooth address" % str(address))
 
@@ -101,6 +123,11 @@ def finddevicename(address, usecache=True):
 ### local device ###
 
 def gethostaddr():
+    """
+    Get the host address.
+
+    Args:
+    """
     sock = _gethcisock()
     try:
         try:
@@ -114,6 +141,11 @@ def gethostaddr():
 
 
 def gethostclass():
+    """
+    Return the current usb device.
+
+    Args:
+    """
     sock = _gethcisock()
     try:
         try:
@@ -127,6 +159,11 @@ def gethostclass():
 
 
 def _gethostname():
+    """
+    Return the host name.
+
+    Args:
+    """
     sock = _gethcisock()
     try:
         try:
@@ -143,12 +180,25 @@ def _gethostname():
 class _SocketWrapper(object):
 
     def __init__(self, sock):
+        """
+        Initialize the socket.
+
+        Args:
+            self: (todo): write your description
+            sock: (todo): write your description
+        """
         self.__dict__["_sock"] = sock
         self.__dict__["_advertised"] = False
         self.__dict__["_listening"] = False
 
     # must implement accept() to return _SocketWrapper objects
     def accept(self):
+        """
+        Accept a socket to the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         try:
             # access _sock._sock (i.e. pybluez socket's internal sock)
             # this is so we can raise timeout errors with a different exception
@@ -164,16 +214,35 @@ class _SocketWrapper(object):
     accept.__doc__ = _lightbluecommon._socketdocs["accept"]
 
     def listen(self, backlog):
+        """
+        Starts the socket.
+
+        Args:
+            self: (todo): write your description
+            backlog: (bool): write your description
+        """
         if not self._listening:
             self._sock.listen(backlog)
             self._listening = True
 
     # must implement dup() to return _SocketWrapper objects
     def dup(self):
+        """
+        Return a copy of the socket.
+
+        Args:
+            self: (todo): write your description
+        """
         return _SocketWrapper(self._sock.dup())
     dup.__doc__ = _lightbluecommon._socketdocs["dup"]
 
     def getsockname(self):
+        """
+        Return the socket name.
+
+        Args:
+            self: (todo): write your description
+        """
         sockname = self._sock.getsockname()
         if sockname[1] != 0:
             return (gethostaddr(), sockname[1])
@@ -210,6 +279,14 @@ class _SocketWrapper(object):
 
 
 def socket(proto=_lightbluecommon.RFCOMM):
+    """
+    Return socket socket.
+
+    Args:
+        proto: (todo): write your description
+        _lightbluecommon: (todo): write your description
+        RFCOMM: (todo): write your description
+    """
     # return a wrapped BluetoothSocket
     sock = bluetooth.BluetoothSocket(_PROTOCOLS[proto])
     return _SocketWrapper(sock)
@@ -218,6 +295,14 @@ def socket(proto=_lightbluecommon.RFCOMM):
 ### advertising services ###
 
 def advertise(servicename, sock, serviceclass):
+    """
+    Advertise a service.
+
+    Args:
+        servicename: (str): write your description
+        sock: (todo): write your description
+        serviceclass: (todo): write your description
+    """
     try:
         if serviceclass == _lightbluecommon.RFCOMM:
             bluetooth.advertise_service(sock._sock,
@@ -252,6 +337,12 @@ def advertise(servicename, sock, serviceclass):
 
 
 def stopadvertise(sock):
+    """
+    Stops the socket.
+
+    Args:
+        sock: (todo): write your description
+    """
     if not sock._advertised:
         raise _lightbluecommon.BluetoothError("no service advertised")
     try:
@@ -266,10 +357,20 @@ def stopadvertise(sock):
 
 
 def selectdevice():
+    """
+    Select the device selectdevice.
+
+    Args:
+    """
     import _discoveryui
     return _discoveryui.selectdevice()
 
 def selectservice():
+    """
+    Selects a service.
+
+    Args:
+    """
     import _discoveryui
     return _discoveryui.selectservice()
 
@@ -280,10 +381,24 @@ def selectservice():
 
 class _SyncDeviceInquiry(object):
     def __init__(self):
+        """
+        Initialize the device.
+
+        Args:
+            self: (todo): write your description
+        """
         super(_SyncDeviceInquiry, self).__init__()
         self._inquiry = None
 
     def run(self, getnames=True, length=10):
+        """
+        Cancel all devices.
+
+        Args:
+            self: (todo): write your description
+            getnames: (str): write your description
+            length: (int): write your description
+        """
         self._founddevices = []
 
         self._inquiry = _MyDiscoverer(self._founddevice, self._inquirycomplete)
@@ -301,9 +416,24 @@ class _SyncDeviceInquiry(object):
         return self._founddevices
 
     def _founddevice(self, address, deviceclass, name):
+        """
+        Add a new : class to the list of devices.
+
+        Args:
+            self: (todo): write your description
+            address: (str): write your description
+            deviceclass: (todo): write your description
+            name: (str): write your description
+        """
         self._founddevices.append(_getdevicetuple(address, deviceclass, name))
 
     def _inquirycomplete(self):
+        """
+        : return none ]
+
+        Args:
+            self: (todo): write your description
+        """
         pass
 
 
@@ -314,14 +444,37 @@ class _MyDiscoverer(bluetooth.DeviceDiscoverer):
     # - cancel_inquiry()
 
     def __init__(self, founddevicecallback, completedcallback):
+        """
+        Initialize the device.
+
+        Args:
+            self: (todo): write your description
+            founddevicecallback: (todo): write your description
+            completedcallback: (callable): write your description
+        """
         bluetooth.DeviceDiscoverer.__init__(self)   # old-style superclass, no super()
         self.founddevicecallback = founddevicecallback
         self.completedcallback = completedcallback
 
     def device_discovered(self, address, deviceclass, name):
+        """
+        Discovered a device.
+
+        Args:
+            self: (todo): write your description
+            address: (str): write your description
+            deviceclass: (todo): write your description
+            name: (str): write your description
+        """
         self.founddevicecallback(address, deviceclass, name)
 
     def inquiry_complete(self):
+        """
+        Complements the next completion.
+
+        Args:
+            self: (todo): write your description
+        """
         self.completedcallback()
 
 
@@ -329,6 +482,14 @@ class _MyDiscoverer(bluetooth.DeviceDiscoverer):
 ### utility methods ###
 
 def _getdevicetuple(address, deviceclass, name):
+    """
+    Returns a tuple of ( deviceclass and device.
+
+    Args:
+        address: (str): write your description
+        deviceclass: (todo): write your description
+        name: (str): write your description
+    """
     # Return as (addr, name, cod) tuple.
     return (address, name, deviceclass)
 
@@ -352,6 +513,12 @@ _obexserviceclasses = (
     bluetooth.IRMC_SYNC_CMD_CLASS
     )
 def _isobexservice(service):
+    """
+    Returns true if the given service is installed
+
+    Args:
+        service: (todo): write your description
+    """
     for sc in service["service-classes"]:
         if sc in _obexserviceclasses:
             return True
@@ -360,6 +527,12 @@ def _isobexservice(service):
 
 # Gets HCI socket thru PyBluez. Remember to close the returned socket.
 def _gethcisock(devid=-1):
+    """
+    Return the usb device.
+
+    Args:
+        devid: (str): write your description
+    """
     try:
         sock = _bluetooth.hci_open_dev(devid)
     except Exception, e:

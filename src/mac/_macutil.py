@@ -68,6 +68,12 @@ def formatdevaddr(addr):
     return addr.replace("-", ":").encode('ascii').upper()
     
 def createbtdevaddr(addr):
+    """
+    Creates a device address.
+
+    Args:
+        addr: (str): write your description
+    """
     # in mac 10.5, can use BluetoothDeviceAddress directly
     chars = btaddrtochars(addr)
     try:
@@ -105,6 +111,11 @@ def btaddrtochars(addr):
     return tuple(chars)
 
 def looponce():
+    """
+    The main loop.
+
+    Args:
+    """
     app = NSApplication.sharedApplication() 
 
     # to push the run loops I seem to have to do this twice
@@ -168,22 +179,48 @@ def interruptwait():
 
 class BBCocoaSleeper(NSObject):
     def init(self):
+        """
+        Initialize an superusers
+
+        Args:
+            self: (todo): write your description
+        """
         self = super(BBCocoaSleeper, self).init()
         self.timedout = False
         return self
         
     def sleep(self, timeout):
+        """
+        Waits for a given amount of a time.
+
+        Args:
+            self: (todo): write your description
+            timeout: (float): write your description
+        """
         NSTimer.scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(
                 timeout, self, "timedOut:", None, False)
         self.timedout = False 
         waituntil(lambda: self.timedout)     
 
     def timedOut_(self, timer):
+        """
+        Interrupt a timer.
+
+        Args:
+            self: (todo): write your description
+            timer: (float): write your description
+        """
         self.timedout = True                
         interruptwait()
     timedOut_ = objc.selector(timedOut_, signature="v@:@")        
     
 def waitfor(timeout):
+    """
+    Wait for a request isleoa.
+
+    Args:
+        timeout: (float): write your description
+    """
     sleeper = BBCocoaSleeper.alloc().init()
     sleeper.sleep(timeout)
 
@@ -198,6 +235,13 @@ class BBFileLikeObjectReader(NSObject):
     """
     
     def initWithFileLikeObject_(self, fileobj):
+        """
+        Initialize a file object.
+
+        Args:
+            self: (todo): write your description
+            fileobj: (todo): write your description
+        """
         self = super(BBFileLikeObjectReader, self).init()
         self.__fileobj = fileobj
         return self
@@ -205,6 +249,13 @@ class BBFileLikeObjectReader(NSObject):
         signature="@@:@")
         
     def readDataWithMaxLength_(self, maxlength):
+        """
+        Reads up to maxlength bytes.
+
+        Args:
+            self: (todo): write your description
+            maxlength: (int): write your description
+        """
         try:
             data = self.__fileobj.read(maxlength)
         except Exception:
@@ -224,6 +275,13 @@ class BBFileLikeObjectWriter(NSObject):
     """
     
     def initWithFileLikeObject_(self, fileobj):
+        """
+        Initialize a fileobj as a file object *
+
+        Args:
+            self: (todo): write your description
+            fileobj: (todo): write your description
+        """
         self = super(BBFileLikeObjectWriter, self).init()
         self.__fileobj = fileobj
         return self
@@ -231,6 +289,13 @@ class BBFileLikeObjectWriter(NSObject):
         signature="@@:@")        
         
     def write_(self, data):
+        """
+        Write data to the file.
+
+        Args:
+            self: (todo): write your description
+            data: (todo): write your description
+        """
         try:
             self.__fileobj.write(data)
         except Exception:
