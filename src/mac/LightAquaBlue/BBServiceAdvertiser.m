@@ -122,33 +122,31 @@ static NSDictionary *fileTransferProfileDict;
 	[BBServiceAdvertiser updateServiceDictionary:sdpEntries
 										withName:serviceName
 										withUUID:uuid];
+    
+    // publish the service
+    IOBluetoothSDPServiceRecord * serviceRecord = [IOBluetoothSDPServiceRecord publishedServiceRecordWithDictionary:sdpEntries];
+    
 	
-	// publish the service
-	IOBluetoothSDPServiceRecordRef serviceRecordRef;
-	IOReturn status = IOBluetoothAddServiceDict((CFDictionaryRef) sdpEntries, &serviceRecordRef);
-	
-	if (status == kIOReturnSuccess) {
-		
-		IOBluetoothSDPServiceRecord *serviceRecord =
-			[IOBluetoothSDPServiceRecord withSDPServiceRecordRef:serviceRecordRef];
-		
+    IOReturn status;
+    if (serviceRecord){
 		// get service channel ID & service record handle
 		status = [serviceRecord getRFCOMMChannelID:outChannelID];
 		if (status == kIOReturnSuccess) {
 			status = [serviceRecord getServiceRecordHandle:outServiceRecordHandle];
 		}
-		
 		// cleanup
-		IOBluetoothObjectRelease(serviceRecordRef);
+        [serviceRecord release];
 	}
-	
 	return status;
+     
 }
 
 
 + (IOReturn)removeService:(BluetoothSDPServiceRecordHandle)handle
 {
-	return IOBluetoothRemoveServiceWithRecordHandle(handle);
+    IOBluetoothSDPServiceRecord* record = [[IOBluetoothSDPServiceRecord withSDPServiceRecordRef:handle] removeServiceRecord];
+    return [record removeServiceRecord];
+	
 }
 
 @end
